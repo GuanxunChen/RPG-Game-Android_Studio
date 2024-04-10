@@ -1,20 +1,10 @@
 package com.example.rpg
 
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModel
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import android.widget.Button
-import android.view.View
-import android.widget.ScrollView
-import android.widget.TextView
-import android.widget.ImageView
-import androidx.activity.viewModels
 
 import android.app.AlertDialog
 import android.content.Context
@@ -81,6 +71,24 @@ data class NPC(
     var crit: Int,
 )
 
+data class Item(
+    var name: String,
+    var type: String,
+    var element: String,
+    var attack: Int,
+    var defense: Int,
+    var damage: Int,
+    var heals: Int,
+    var quantity: Int,
+    var isKey: Int,
+    var isHelmet: Boolean,
+    var isArmor: Boolean,
+    var isBoot: Boolean,
+    var isWeapon: Boolean,
+    var isSelfUsable: Boolean,
+    var isUsable: Boolean,
+)
+
 class StoryData : ViewModel() {
     var storyLines: MutableList<String> = mutableListOf(
         "",
@@ -135,7 +143,11 @@ class StoryData : ViewModel() {
         "","" // Char name
     )
 
-    var PlayerCharacters = mutableListOf(
+    var ItemList = mutableListOf<Item>(
+
+    )
+
+    var PlayerCharacters = mutableListOf<PlayerCharacter>(
         PlayerCharacter(true,"Hero", "Male","Peasant","","",1,
             1,1,1,1,10,10,5),
         PlayerCharacter(false,"Heroine", "Female","Peasant","","",1,
@@ -144,13 +156,13 @@ class StoryData : ViewModel() {
             10,10,10,10,10,10),
     )
 
-    var FriendlyNPC = mutableListOf(
+    var FriendlyNPC = mutableListOf<NPC>(
         NPC("Guard",5,75,30,67,42,57,47,75,30,10),
         NPC("Teacher",3,65,54,45,51,46,45,59,29,8),
         NPC("Students",1,50,30,45,35,40,35,55,25,8),
     )
 
-    var EnemyNPC = mutableListOf(
+    var EnemyNPC = mutableListOf<NPC>(
         NPC("Bats",1,20,9,19,13,19,17,31,16,5),
         NPC("Skeleton",2,50,6,70,16,45,26,41,11,6),
         NPC("SkeletonKnight",5,75,15,92,30,62,40,62,17,8),
