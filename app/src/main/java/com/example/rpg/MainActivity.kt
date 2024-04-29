@@ -54,7 +54,17 @@ data class PlayerCharacter(
     var hittempbattleOnly: Int = 0,
     var dodgetempbattleOnly: Int = 0,
     var crittempbattleOnly: Int = 0,
-    var relationlevel: Int = 0
+    var relationlevel: Int = 0,
+    val inventoryItems: MutableMap<String, Int> = mutableMapOf(
+        "sword" to 5,
+        "potion" to 3,
+        "apple" to 2,
+        "boot" to 10,
+        "arrow" to 69,
+        "staff" to 0,
+        "sheild" to 0,
+        "dagger" to 0
+    )
 )
 
 data class NPC(
