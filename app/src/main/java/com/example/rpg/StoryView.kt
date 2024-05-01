@@ -99,7 +99,7 @@ internal fun MainActivity.setupStoryViewListeners()
         ViewModel.currentTxt = currentTxt
 
         setContentView(R.layout.inventoryview)
-        //setupInventoryViewListeners()
+        setupInventoryViewListeners()
     }
 
     // Setting Button
