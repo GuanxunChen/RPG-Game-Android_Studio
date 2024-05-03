@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 // Story View
 internal fun MainActivity.setupStoryViewListeners()
 {
-    val viewModel = ViewModelProvider(this).get(StoryData::class.java)
+    //val ViewModel = ViewModelProvider(this).get(StoryData::class.java)
 
     val buttonCharacter = findViewById<Button>(R.id.CharMenu)
     val buttonSkill = findViewById<Button>(R.id.SkillMenu)
@@ -109,7 +109,7 @@ internal fun MainActivity.setupStoryViewListeners()
         ViewModel.currentTxt = currentTxt
 
         setContentView(R.layout.settingview)
-        //setupSettingViewListeners()
+        setupSettingViewListeners(true)
     }
 
     // Next Button
@@ -129,18 +129,24 @@ internal fun MainActivity.setupStoryViewListeners()
         }
 
         // Question section
-        if(ViewModel.storyIndex == 5) // Character Creation - Choose Gender
+        if(ViewModel.storyIndex == 17) // Character Creation - Choose Gender
         {
-            buttonChoice1.text = "Male"
-            buttonChoice2.text = "Female"
+            buttonChoice1.text = "You nervously laughed thinking this must be a joke of some sort"
+            buttonChoice2.text = "You jokingly questioned how could a corpse be conscious like you are"
+            buttonChoice3.text = "You were terrified from this news and ask for any other way to stay alive"
+            buttonChoice4.text = "You angrily spit at the orb and didn’t believe a single word"
 
             buttonNext.visibility = View.INVISIBLE
             buttonChoice1.visibility = View.VISIBLE
             buttonChoice2.visibility = View.VISIBLE
+            buttonChoice3.visibility = View.VISIBLE
+            buttonChoice4.visibility = View.VISIBLE
 
             ViewModel.storyButtonVisible[4] = false
             ViewModel.storyButtonVisible[5] = true
             ViewModel.storyButtonVisible[6] = true
+            ViewModel.storyButtonVisible[7] = true
+            ViewModel.storyButtonVisible[8] = true
         }
 
         if(ViewModel.storyIndex == 22) // Character Growth - Selection1
