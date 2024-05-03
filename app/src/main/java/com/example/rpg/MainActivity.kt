@@ -90,26 +90,27 @@ data class Item(
 )
 
 class StoryData : ViewModel() {
+    // Story View Use
     var storyLines: MutableList<String> = mutableListOf(
         "",
-        "Hello, I am sorry to tell you, another you in the parallel world has just died.\n",//1
-        "To express my sorrows, I've decided to send that poor soul to another new start.\n",
-        "And you, got the privilege of helping him during this process!\n",
-        "Now allow me to ask some questions.....\n",
-        "What gender do you prefer to be?\n",//5
-        "Which of following power do you think is the strongest?\n",//6
-        "What is your favorite weapon in between these choices?\n",//7
-        "What is your name?\n",//8
-        "Okay! Then let the new life start!",//9
-        "",//10 Character Creation Finish
-        "When you regain your consciousness, you found yourself to be laying on a bed\n",
-        "The bed has guardrails on the sides, while on top of the blankets lies many childish toys\n",
-        "It was then, you started to have a vaguely clue on what is going on.\n",
-        "Immediately, you looked down onto your hands.\n",
-        "And as expected.... It was a small set of hands that you don't recognize\n",//15
-        "You, have turn into a Toddler right now -- a cute child who can't even quite speak yet!\n ",
-        "The door creaks and opens, a handsome man with silver hair walks into the room.\n",
-        "He wears an Studded Leather Armor, and on his belt is a long sword sheathed within the scabbard.\n",
+        "It is a sunny day, and the weather forecast says there will be no rain or snow. \n",//1
+        "Birds are chirping, flowers are blooming....\n",
+        "On days like this, people as young as you…. Should really sleep on time.\n",
+        "The light shining onto your body feels so hot, your closed eyes twitch slightly as you feel your heart start to ache.\n",
+        "Breathe is fastening, blood is pumping…. within every second, you can feel your body weakening.\n",//5
+        "And when your hand finally reaches for your heart, it is all too late.\n",//6
+        "As if there’s a lightning that suddenly struck you, you moan in agony and pain.\n",//7
+        "Your consciousness fades away alone with the burning feeling, and fragments of thoughts slowly sink down into the eternal darkness.\n",//8
+        "",//9
+        "When you regain your consciousness, in front of your eyes floats a large glowing orb as big as a truck.",//10 Character Creation Finish
+        "You were stunned, not sure what you are looking at and why you are here.\n",
+        "But before you got to do anything, a robotic voice came from the orb, it speaks.\n",
+        "\"Connection with the subject is established. Now loading the Introduction module…..\"\n",
+        "\"Loaded.\"\n",
+        "\"Welcome to the Room of Rebirth. Foreigners, we are sorry to inform you that you have died in your original world.\"\n",//15
+        "\"The reason for your death seems to be a sudden heart attack, likely due to your inconsistent sleeping hours.\"\n ",
+        "Hearing the words, you try to dive back in your memory, yet only to find your memory missing and incomplete. So you...\n",// Choice 1
+        "",// User Input
         "The man sees you and smiles. He quickly walk up to you, and despite your resistance, picked you up and tightly hugs you.\n",
         "As he does that, the man talked in a language that you don't seem to understand.\n",//20
         "The man: \"哇~我的小可爱，今天在家有没有乖乖的？好孩子好孩子，来给爸爸抱抱~！\"\n",
@@ -128,6 +129,7 @@ class StoryData : ViewModel() {
 
     var currentTxt = "" // the current line of story, usually used to save text for view jumping
     var storyIndex: Int = 0 // which line is the story currently on
+
     var charIndex: Int = 0 // the position of character showing in characterSheet
 
     var storyButtonVisible = mutableListOf(
@@ -142,6 +144,8 @@ class StoryData : ViewModel() {
         "","","","", // 4 Choice Button
         "","" // Char name
     )
+
+    // setting use
 
     var ItemList = mutableListOf<Item>(
 
@@ -201,7 +205,7 @@ class MainActivity : ComponentActivity() {
 
         buttonSetting.setOnClickListener {
             setContentView(R.layout.settingview)
-            //setupSettingViewListeners()
+            setupSettingViewListeners(false)
         }
 
         buttonQuit.setOnClickListener {
