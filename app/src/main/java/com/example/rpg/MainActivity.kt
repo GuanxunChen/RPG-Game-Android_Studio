@@ -171,25 +171,128 @@ class StoryData : ViewModel() {
         "And when your hand finally reaches for your heart, it is all too late.\n",//6
         "As if there’s a lightning that suddenly struck you, you moan in agony and pain.\n",//7
         "Your consciousness fades away alone with the burning feeling, and fragments of thoughts slowly sink down into the eternal darkness.\n",//8
-        "",//9
+        "",//9 flash image
         "When you regain your consciousness, in front of your eyes floats a large glowing orb as big as a truck.",//10 Character Creation Finish
         "You were stunned, not sure what you are looking at and why you are here.\n",
         "But before you got to do anything, a robotic voice came from the orb, it speaks.\n",
-        "\"Connection with the subject is established. Now loading the Introduction module…..\"\n",
-        "\"Loaded.\"\n",
-        "\"Welcome to the Room of Rebirth. Foreigners, we are sorry to inform you that you have died in your original world.\"\n",//15
-        "\"The reason for your death seems to be a sudden heart attack, likely due to your inconsistent sleeping hours.\"\n ",
+        "Orb:\"Connection with the subject is established. Now loading the Introduction module…..\"\n",
+        "Orb:\"Loaded.\"\n",
+        "Orb:\"Welcome to the Room of Rebirth. Foreigners, we are sorry to inform you that you have died in your original world.\"\n",//15
+        "Orb:\"The reason for your death seems to be a sudden heart attack, likely due to your inconsistent sleeping hours.\"\n ",
         "Hearing the words, you try to dive back in your memory, yet only to find your memory missing and incomplete. So you...\n",// Choice 1
-        "",// User Input
-        "The man sees you and smiles. He quickly walk up to you, and despite your resistance, picked you up and tightly hugs you.\n",
-        "As he does that, the man talked in a language that you don't seem to understand.\n",//20
-        "The man: \"哇~我的小可爱，今天在家有没有乖乖的？好孩子好孩子，来给爸爸抱抱~！\"\n",
-        "Hearing this, you decide to......\n",//22 growth selection 1
-        "UserOutput",
-        "His movement stopped for the moment, looking right at your eye, before started to smile again.\n",
-        "Unfinished [1]",
-        "Unfinished [2]",
-        "Unfinished [3]",
+        "",//18 User Input
+        "Orb:\"....As much as you may be concerned, the reason you are here is a coincidence. Your soul collided with the System of Reincarnation while we were traveling by your dimension.\"\n",
+        "Orb:\"For that, we would like to reincarnate you into another world. However, you do have your own choice.\"\n",//20
+        "Orb:\"Question – Would you like to accept the offer?\"\n",
+        "",//22 User Input
+        "Orb:\"Good….. Now, for your well being, we would like to inform you of the following.\"",
+        "Orb:\"The world you are reincarnating to is a world of sword and magic. Monsters and different mythical creatures exist, but humans are still the dominant race….Yet it does not mean you are safe from danger, so please keep that in mind.\"\n",
+        "Orb:\"Now, before your reincarnation begins, there is one last thing.\"\n",
+        "Orb:\"Although we don’t have much authority to interfere with that world, yet we can at least let you choose your own name and gender…..\"",
+        "Orb:\"Question – What would you like to be, boy or girl?\"",
+        "",//28 User Input
+        "Orb:\"Let us proceed.\"",
+        "Orb:\"Question – What would you like your name to be?\"",
+        "",//31 User Input
+        "After you’ve made your decision, without giving you a chance to speak again, your vision starts to blur.",
+        "The surrounding fades, then brightens once again.",
+        "Unfinished [4]",//34 Scene Change
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]")
+
+    var OriginStoryLines: MutableList<String> = mutableListOf(
+        "",
+        "It is a sunny day, and the weather forecast says there will be no rain or snow. \n",//1
+        "Birds are chirping, flowers are blooming....\n",
+        "On days like this, people as young as you…. Should really sleep on time.\n",
+        "The light shining onto your body feels so hot, your closed eyes twitch slightly as you feel your heart start to ache.\n",
+        "Breathe is fastening, blood is pumping…. within every second, you can feel your body weakening.\n",//5
+        "And when your hand finally reaches for your heart, it is all too late.\n",//6
+        "As if there’s a lightning that suddenly struck you, you moan in agony and pain.\n",//7
+        "Your consciousness fades away alone with the burning feeling, and fragments of thoughts slowly sink down into the eternal darkness.\n",//8
+        "",//9 flash image
+        "When you regain your consciousness, in front of your eyes floats a large glowing orb as big as a truck.",//10 Character Creation Finish
+        "You were stunned, not sure what you are looking at and why you are here.\n",
+        "But before you got to do anything, a robotic voice came from the orb, it speaks.\n",
+        "Orb:\"Connection with the subject is established. Now loading the Introduction module…..\"\n",
+        "Orb:\"Loaded.\"\n",
+        "Orb:\"Welcome to the Room of Rebirth. Foreigners, we are sorry to inform you that you have died in your original world.\"\n",//15
+        "Orb:\"The reason for your death seems to be a sudden heart attack, likely due to your inconsistent sleeping hours.\"\n ",
+        "Hearing the words, you try to dive back in your memory, yet only to find your memory missing and incomplete. So you...\n",// Choice 1
+        "",//18 User Input
+        "Orb:\"....As much as you may be concerned, the reason you are here is a coincidence. Your soul collided with the System of Reincarnation while we were traveling by your dimension.\"\n",
+        "Orb:\"For that, we would like to reincarnate you into another world. However, you do have your own choice.\"\n",//20
+        "Orb:\"Question – Would you like to accept the offer?\"\n",
+        "",//22 User Input
+        "Orb:\"Good….. Now, for your well being, we would like to inform you of the following.\"",
+        "Orb:\"The world you are reincarnating to is a world of sword and magic. Monsters and different mythical creatures exist, but humans are still the dominant race….Yet it does not mean you are safe from danger, so please keep that in mind.\"\n",
+        "Orb:\"Now, before your reincarnation begins, there is one last thing.\"\n",
+        "Orb:\"Although we don’t have much authority to interfere with that world, yet we can at least let you choose your own name and gender…..\"",
+        "Orb:\"Question – What would you like to be, boy or girl?\"",
+        "",//28 User Input
+        "Orb:\"Let us proceed.\"",
+        "Orb:\"Question – What would you like your name to be?\"",
+        "",//31 User Input
+        "After you’ve made your decision, without giving you a chance to speak again, your vision starts to blur.",
+        "The surrounding fades, then brightens once again.",
+        "Unfinished [4]",//34 Scene Change
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
+        "Unfinished [4]",
         "Unfinished [4]")
 
     var aggressiveness: Int = 0
@@ -199,6 +302,7 @@ class StoryData : ViewModel() {
 
     var currentTxt = "" // the current line of story, usually used to save text for view jumping
     var storyIndex: Int = 0 // which line is the story currently on
+    var storyPushBack: Int = 0 // how much line was inserted into story
 
     var charIndex: Int = 0 // the position of character showing in characterSheet
 

@@ -89,7 +89,7 @@ internal fun MainActivity.setupStoryViewListeners()
         ViewModel.currentTxt = currentTxt
 
         setContentView(R.layout.skillview)
-        setupSkillViewListeners()
+        //setupSkillViewListeners()
     }
 
     // Inventory Button
@@ -129,7 +129,7 @@ internal fun MainActivity.setupStoryViewListeners()
         }
 
         // Question section
-        if(ViewModel.storyIndex == 17) // Character Creation - Choose Gender
+        if(ViewModel.storyIndex == 17+ViewModel.storyPushBack) // Type choice 1
         {
             buttonChoice1.text = "You nervously laughed thinking this must be a joke of some sort"
             buttonChoice2.text = "You jokingly questioned how could a corpse be conscious like you are"
@@ -142,6 +142,11 @@ internal fun MainActivity.setupStoryViewListeners()
             buttonChoice3.visibility = View.VISIBLE
             buttonChoice4.visibility = View.VISIBLE
 
+            ViewModel.storyButtontag[5] = "You nervously laughed thinking this must be a joke of some sort"
+            ViewModel.storyButtontag[6] = "You jokingly questioned how could a corpse be conscious like you are"
+            ViewModel.storyButtontag[7] = "You were terrified from this news and ask for any other way to stay alive"
+            ViewModel.storyButtontag[8] = "You angrily spit at the orb and didn’t believe a single word"
+
             ViewModel.storyButtonVisible[4] = false
             ViewModel.storyButtonVisible[5] = true
             ViewModel.storyButtonVisible[6] = true
@@ -149,33 +154,27 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[8] = true
         }
 
-        if(ViewModel.storyIndex == 22) // Character Growth - Selection1
+        if(ViewModel.storyIndex == 21+ViewModel.storyPushBack) // Character Growth - Selection1
         {
-            buttonChoice1.text = "Slap him on the face" // Aggressive
-            buttonChoice2.text = "Kiss him on the cheek" // Passive
-            buttonChoice3.text = "Crying out loud" // Passive Aggressive
-            buttonChoice4.text = "Stare at him silently" // Assertive
+            buttonChoice1.text = "Yes"
+            buttonChoice2.text = "No"
 
-            ViewModel.storyButtontag[5] = "Slap him on the face"
-            ViewModel.storyButtontag[6] = "Kiss him on the cheek"
-            ViewModel.storyButtontag[7] = "Crying out loud"
-            ViewModel.storyButtontag[8] = "Stare at him silently"
+            ViewModel.storyButtontag[5] = "Yes"
+            ViewModel.storyButtontag[6] = "No"
 
             buttonNext.visibility = View.INVISIBLE
             buttonChoice1.visibility = View.VISIBLE
             buttonChoice2.visibility = View.VISIBLE
-            buttonChoice3.visibility = View.VISIBLE
-            buttonChoice4.visibility = View.VISIBLE
 
             ViewModel.storyButtonVisible[4] = false
             ViewModel.storyButtonVisible[5] = true
             ViewModel.storyButtonVisible[6] = true
-            ViewModel.storyButtonVisible[7] = true
-            ViewModel.storyButtonVisible[8] = true
         }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         // Stage Change section
-        if(ViewModel.storyIndex == 10) // Character Creation - Finish
+        if(ViewModel.storyIndex == 10+ViewModel.storyPushBack) // Character Creation - Finish
         {
             buttonCharacter.visibility = View.VISIBLE
             buttonSkill.visibility = View.VISIBLE
@@ -193,9 +192,28 @@ internal fun MainActivity.setupStoryViewListeners()
 
     buttonChoice1.setOnClickListener {
         // Answer section
-        if(ViewModel.storyIndex == 5)// Character Creation - Choose Gender
+        if(ViewModel.storyIndex == 17+ViewModel.storyPushBack) // Type choice 1 -- Answer
         {
-            ViewModel.PlayerCharacters[0].gender = "Male"
+            ViewModel.storyLines[18+ViewModel.storyPushBack] = "You nervously laughed thinking this must be a joke of some sort.\n"
+            ViewModel.storyLines.add(19+ViewModel.storyPushBack, "The orb did not stop at your nervous laughing face, it continued its statement.\n")
+            ViewModel.storyPushBack+=1
+
+            buttonNext.visibility = View.VISIBLE
+            buttonChoice1.visibility = View.INVISIBLE
+            buttonChoice2.visibility = View.INVISIBLE
+            buttonChoice3.visibility = View.INVISIBLE
+            buttonChoice4.visibility = View.INVISIBLE
+
+            ViewModel.storyButtonVisible[4] = true
+            ViewModel.storyButtonVisible[5] = false
+            ViewModel.storyButtonVisible[6] = false
+            ViewModel.storyButtonVisible[7] = false
+            ViewModel.storyButtonVisible[8] = false
+        }
+
+        if(ViewModel.storyIndex == 21+ViewModel.storyPushBack) //
+        {
+            ViewModel.storyLines[22+ViewModel.storyPushBack] = "You accepted the offer.\n"
 
             buttonNext.visibility = View.VISIBLE
             buttonChoice1.visibility = View.INVISIBLE
@@ -205,6 +223,7 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[5] = false
             ViewModel.storyButtonVisible[6] = false
         }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         if(ViewModel.storyIndex == 6)// Character Creation - Choose Power
         {
@@ -394,16 +413,51 @@ internal fun MainActivity.setupStoryViewListeners()
         }
     }
 
+
     buttonChoice2.setOnClickListener {
         // Answer section
-        if(ViewModel.storyIndex == 5)// Character Creation - Choose Gender
+        if(ViewModel.storyIndex == 17+ViewModel.storyPushBack)
         {
-            ViewModel.PlayerCharacters[0].gender = "Female"
+            ViewModel.storyLines[18+ViewModel.storyPushBack] = "You jokingly questioned how could a corpse be conscious like you are\n"
+            ViewModel.storyLines.add(19+ViewModel.storyPushBack, "The orb silenced for seconds, then replied to you.\n")
+            ViewModel.storyLines.add(20+ViewModel.storyPushBack, "Orb:\"Answer – your current state is merely a soul, thus you still have consciousness before your souls also disperse into fragments.\"\n")
+            ViewModel.storyPushBack+=2
+
+            buttonNext.visibility = View.VISIBLE
             buttonChoice1.visibility = View.INVISIBLE
             buttonChoice2.visibility = View.INVISIBLE
-            buttonNext.visibility = View.VISIBLE
+            buttonChoice3.visibility = View.INVISIBLE
+            buttonChoice4.visibility = View.INVISIBLE
+
+            ViewModel.storyButtonVisible[4] = true
+            ViewModel.storyButtonVisible[5] = false
+            ViewModel.storyButtonVisible[6] = false
+            ViewModel.storyButtonVisible[7] = false
+            ViewModel.storyButtonVisible[8] = false
         }
 
+        if(ViewModel.storyIndex == 21+ViewModel.storyPushBack) //
+        {
+            ViewModel.storyLines[22+ViewModel.storyPushBack] = "You Declined the offer.\n"
+            ViewModel.storyLines.add(23+ViewModel.storyPushBack, "The moment you decline the offer, with a flash boom, your head turns dizzy, and your consciousness fades away.\n")
+            ViewModel.storyLines.add(24+ViewModel.storyPushBack,"Before you get to change your mind and say anything, you see a bright light that blinds you from soul to mind…..")
+            ViewModel.storyLines.add(25+ViewModel.storyPushBack,"Then you realize, you woke up from the bed.")
+            ViewModel.storyLines.add(26+ViewModel.storyPushBack,"Without remembering anything about the rough 20 minutes of sleep, you walked out with a tiring body that would collapse any second.")
+            ViewModel.storyLines.add(27+ViewModel.storyPushBack,"You went to your normal day, and at one point, you sat on the chair and lay on the table.")
+
+            buttonNext.visibility = View.VISIBLE
+            buttonChoice1.visibility = View.INVISIBLE
+            buttonChoice2.visibility = View.INVISIBLE
+            buttonChoice3.visibility = View.INVISIBLE
+            buttonChoice4.visibility = View.INVISIBLE
+
+            ViewModel.storyButtonVisible[4] = true
+            ViewModel.storyButtonVisible[5] = false
+            ViewModel.storyButtonVisible[6] = false
+            ViewModel.storyButtonVisible[7] = false
+            ViewModel.storyButtonVisible[8] = false
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if(ViewModel.storyIndex == 6)// Character Creation - Choose Power
         {
             ViewModel.PlayerCharacters[0].type = "Ki"
@@ -594,21 +648,26 @@ internal fun MainActivity.setupStoryViewListeners()
 
     buttonChoice3.setOnClickListener {
         // Answer section
-        if(ViewModel.storyIndex == 6)// Character Creation - Choose Power
+        if(ViewModel.storyIndex == 17+ViewModel.storyPushBack)
         {
-            ViewModel.PlayerCharacters[0].type = "Holy"
+            ViewModel.storyLines[18+ViewModel.storyPushBack] = "You were terrified from this news and ask for any other way to stay alive\n"
+            ViewModel.storyLines.add(19+ViewModel.storyPushBack, "The white glowing orb flickered a few times.\n")
+            ViewModel.storyLines.add(20+ViewModel.storyPushBack, "Orb: \"Answer – there is no way of returning to your world.\"\n")
+            ViewModel.storyPushBack+=2
 
             buttonNext.visibility = View.VISIBLE
             buttonChoice1.visibility = View.INVISIBLE
             buttonChoice2.visibility = View.INVISIBLE
             buttonChoice3.visibility = View.INVISIBLE
+            buttonChoice4.visibility = View.INVISIBLE
 
             ViewModel.storyButtonVisible[4] = true
             ViewModel.storyButtonVisible[5] = false
             ViewModel.storyButtonVisible[6] = false
             ViewModel.storyButtonVisible[7] = false
+            ViewModel.storyButtonVisible[8] = false
         }
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if(ViewModel.storyIndex == 7) // Character Creation - Choose Weapon
         {
             when(ViewModel.PlayerCharacters[0].type)
@@ -767,9 +826,11 @@ internal fun MainActivity.setupStoryViewListeners()
 
     buttonChoice4.setOnClickListener {
         // Answer section
-        if(ViewModel.storyIndex == 7) // Character Creation - Choose Weapon
+        if(ViewModel.storyIndex == 17+ViewModel.storyPushBack)
         {
-            ViewModel.PlayerCharacters[0].weaponType = "Bow & Arrow"
+            ViewModel.storyLines[18+ViewModel.storyPushBack] = "You angrily spit at the orb and didn’t believe a single word\n"
+            ViewModel.storyLines.add(19+ViewModel.storyPushBack, "The orb stayed silent until your anger was let out, until reality finally crashed onto you and made you silenced yourself.\n")
+            ViewModel.storyPushBack+=1
 
             buttonNext.visibility = View.VISIBLE
             buttonChoice1.visibility = View.INVISIBLE
@@ -783,6 +844,7 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[7] = false
             ViewModel.storyButtonVisible[8] = false
         }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         if(ViewModel.storyIndex == 22) // Character Growth - Selection1
         {
