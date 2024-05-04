@@ -6,6 +6,7 @@ val iron_sword = Item(
     type = "Weapon",
     description = "A standard iron sword commonly used by adventurers.",
     attack = 10,
+    strBoost = 5,
     isWeapon = true
 )
 val wooden_bow = Item(
@@ -53,6 +54,7 @@ val leather_boots = Item(
     type = "Boots",
     description = "Simple leather boots offering basic protection and mobility.",
     defense = 3,
+    agiBoost = 10,
     isBoot = true
 )
 val steel_greaves = Item(
@@ -136,6 +138,8 @@ val dual_daggers = Item(
     type = "Weapon",
     description = "A pair of sharp daggers used for swift and deadly strikes in close combat.",
     attack = 11,
+    strBoost = 30,
+    agiBoost = 20,
     isWeapon = true
 )
 
@@ -144,14 +148,14 @@ val potion = Item(
     name = "Health Potion",
     type = "Consumable",
     description = "Restores a small amount of health when consumed.",
-    heals = 20,
+    heals = 25,
     isUsable = true
 )
 val elixer = Item(
     name = "Mana Elixir",
     type = "Consumable",
     description = "Restores a small amount of mana when consumed.",
-    heals = 15,
+    mana = 25,
     isUsable = true
 )
 val antidote = Item(
@@ -160,7 +164,6 @@ val antidote = Item(
     description = "Cures poison status when consumed.",
     isUsable = true
 )
-
 
 
 //Legendary Items

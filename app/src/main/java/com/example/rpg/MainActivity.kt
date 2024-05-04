@@ -56,15 +56,16 @@ data class PlayerCharacter(
     var crittempbattleOnly: Int = 0,
     var relationlevel: Int = 0,
     val inventoryItems: MutableMap<Item, Int> = mutableMapOf(),
-    val skills: MutableMap<String, Int> = mutableMapOf(
-        "fireball" to 5,
-        "heal" to 3,
-        "sleep" to 2,
-        "tackle" to 10,
-        "thunder" to 69,
-        "slash" to 0,
-        "block" to 0,
-        "blizzard" to 0
+    val skills: MutableMap<String, Skill> = mutableMapOf(
+        "Fireball" to fireball,
+        "Heal" to heal,
+        "Sleep" to sleep,
+        "Tackle" to tackle,
+        "Thunder" to thunder,
+        "Slash" to slash,
+        "Pyromaniac" to Pyromaniac,
+        "Elemental Affinity" to ElementalAffinity,
+        "Gale Force" to GaleForce,
     ),
     var skillUpgradePoints: Int = 10
 )
@@ -91,7 +92,15 @@ data class Item(
     var mattack: Int = 0,
     var defense: Int = 0,
     var mdefense: Int = 0,
+    var hpBoost: Int = 0,
+    var strBoost: Int = 0,
+    var vitBoost: Int = 0,
+    var agiBoost: Int = 0,
+    var dexBoost: Int = 0,
+    var intBoost: Int = 0,
+    var lucBoost: Int = 0,
     var heals: Int = 0,
+    var mana: Int = 0,
     var quantity: Int = 0,
     var isKey: Boolean = false,
     var isHelmet: Boolean = false,
@@ -99,8 +108,56 @@ data class Item(
     var isBoot: Boolean = false,
     var isWeapon: Boolean = false,
     var isSelfUsable: Boolean = false,
-    var isUsable: Boolean = false
+    var isUsable: Boolean = false,
+    var isEquipped: Boolean = false
 )
+data class Skill(
+    var name: String,
+    var description: String,
+    var isPassive: Boolean,
+    var mpCost: Int,
+    var level: Int = 1,
+    var damage: Int = 0,
+    var heal: Int = 0,
+    var targetType: TargetType,
+    var element: Element,
+    var statusEffect: StatusEffect? = null,
+    var cooldown: Int = 0
+)
+
+enum class TargetType {
+    SINGLE, // Target one character
+    ALL,    // Target all characters
+    SELF    // Target the user
+}
+
+enum class Element {
+    FIRE,
+    ICE,
+    LIGHTNING,
+    EARTH,
+    WATER,
+    WIND,
+    HOLY,
+    DARK,
+    NONE
+}
+
+data class StatusEffect(
+    val effectType: EffectType,
+    val duration: Int
+)
+
+enum class EffectType {
+    POISON,
+    PARALYSIS,
+    SLEEP,
+    BURN,
+    FREEZE,
+    STUN,
+    BUFF,
+    DEBUFF
+}
 
 class StoryData : ViewModel() {
     // Story View Use
