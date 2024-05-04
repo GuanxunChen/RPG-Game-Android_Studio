@@ -89,7 +89,7 @@ internal fun MainActivity.setupStoryViewListeners()
         ViewModel.currentTxt = currentTxt
 
         setContentView(R.layout.skillview)
-        //setupSkillViewListeners()
+        setupSkillViewListeners()
     }
 
     // Inventory Button

@@ -64,7 +64,18 @@ data class PlayerCharacter(
         "staff" to 0,
         "sheild" to 0,
         "dagger" to 0
-    )
+    ),
+    val skills: MutableMap<String, Int> = mutableMapOf(
+        "fireball" to 5,
+        "heal" to 3,
+        "sleep" to 2,
+        "tackle" to 10,
+        "thunder" to 69,
+        "slash" to 0,
+        "block" to 0,
+        "blizzard" to 0
+    ),
+    var skillUpgradePoints: Int = 10
 )
 
 data class NPC(
