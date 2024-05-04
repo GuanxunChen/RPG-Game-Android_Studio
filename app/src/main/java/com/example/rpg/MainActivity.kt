@@ -55,16 +55,7 @@ data class PlayerCharacter(
     var dodgetempbattleOnly: Int = 0,
     var crittempbattleOnly: Int = 0,
     var relationlevel: Int = 0,
-    val inventoryItems: MutableMap<String, Int> = mutableMapOf(
-        "sword" to 5,
-        "potion" to 3,
-        "apple" to 2,
-        "boot" to 10,
-        "arrow" to 69,
-        "staff" to 0,
-        "sheild" to 0,
-        "dagger" to 0
-    ),
+    val inventoryItems: MutableMap<Item, Int> = mutableMapOf(),
     val skills: MutableMap<String, Int> = mutableMapOf(
         "fireball" to 5,
         "heal" to 3,
@@ -95,19 +86,20 @@ data class NPC(
 data class Item(
     var name: String,
     var type: String,
-    var element: String,
-    var attack: Int,
-    var defense: Int,
-    var damage: Int,
-    var heals: Int,
-    var quantity: Int,
-    var isKey: Int,
-    var isHelmet: Boolean,
-    var isArmor: Boolean,
-    var isBoot: Boolean,
-    var isWeapon: Boolean,
-    var isSelfUsable: Boolean,
-    var isUsable: Boolean,
+    var description: String,
+    var attack: Int = 0,
+    var mattack: Int = 0,
+    var defense: Int = 0,
+    var mdefense: Int = 0,
+    var heals: Int = 0,
+    var quantity: Int = 0,
+    var isKey: Boolean = false,
+    var isHelmet: Boolean = false,
+    var isArmor: Boolean = false,
+    var isBoot: Boolean = false,
+    var isWeapon: Boolean = false,
+    var isSelfUsable: Boolean = false,
+    var isUsable: Boolean = false
 )
 
 class StoryData : ViewModel() {
@@ -208,6 +200,15 @@ class MainActivity : ComponentActivity() {
 
         // Main Menu
         setContentView(R.layout.mainmenu)
+
+        //starting gear
+        ViewModel.PlayerCharacters[0].inventoryItems[iron_sword] = 1
+        ViewModel.PlayerCharacters[0].inventoryItems[wand] = 1
+        ViewModel.PlayerCharacters[0].inventoryItems[leather_cap] = 1
+        ViewModel.PlayerCharacters[0].inventoryItems[leather_armor] = 1
+        ViewModel.PlayerCharacters[0].inventoryItems[leather_boots] = 1
+        ViewModel.PlayerCharacters[0].inventoryItems[potion] = 3
+        ViewModel.PlayerCharacters[0].inventoryItems[elixer] = 3
 
         val buttonStart = findViewById<Button>(R.id.Start)
         val buttonContinue = findViewById<Button>(R.id.Continue)

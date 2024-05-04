@@ -8,8 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 internal fun MainActivity.setupInventoryViewListeners() {
-
-    class InventoryAdapter(private val inventoryItems: MutableMap<String, Int>) : RecyclerView.Adapter<InventoryAdapter.InventoryViewHolder>() {
+    class InventoryAdapter(private val inventoryItems: MutableMap<Item, Int>) : RecyclerView.Adapter<InventoryAdapter.InventoryViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InventoryViewHolder {
             val itemView = LayoutInflater.from(parent.context).inflate(R.layout.inventory_item, parent, false)
@@ -18,7 +17,7 @@ internal fun MainActivity.setupInventoryViewListeners() {
 
         override fun onBindViewHolder(holder: InventoryViewHolder, position: Int) {
             val currentItem = inventoryItems.entries.toList()[position]
-            holder.textViewItemName.text = currentItem.key
+            holder.textViewItemName.text = currentItem.key.name
             holder.textViewItemCount.text = currentItem.value.toString()
 
             // Set click listener for the "Use" button
@@ -27,7 +26,6 @@ internal fun MainActivity.setupInventoryViewListeners() {
                 if (currentItem.value > 0) {
                     val updatedItemCount = currentItem.value - 1
                     inventoryItems[currentItem.key] = updatedItemCount
-                    ViewModel.PlayerCharacters[ViewModel.charIndex].inventoryItems[currentItem.key] = updatedItemCount
                     notifyDataSetChanged()
                 }
             }
@@ -47,10 +45,8 @@ internal fun MainActivity.setupInventoryViewListeners() {
 
     val inventoryItems = ViewModel.PlayerCharacters[ViewModel.charIndex].inventoryItems
 
-    val filteredInventoryItems = inventoryItems.filterValues { it > 0 }
-
     recyclerView.layoutManager = LinearLayoutManager(this)
-    val adapter = InventoryAdapter(filteredInventoryItems.toMutableMap())
+    val adapter = InventoryAdapter(inventoryItems)
     recyclerView.adapter = adapter
 
     buttonBack.setOnClickListener {
