@@ -94,6 +94,7 @@ internal fun MainActivity.setupInventoryViewListeners() {
                         useItem(currentItem.key)
                         notifyDataSetChanged()
                     }
+
                 }
             }
         }
@@ -152,26 +153,6 @@ internal fun MainActivity.setupInventoryViewListeners() {
             Log.d("Equipment", "Current Armor: ${ViewModel.PlayerCharacters[ViewModel.charIndex].currentArmor}")
         }
 
-        private fun isEquipped(item: Item): Boolean {
-            return item.isEquipped
-        }
-
-        private fun equipItem(item: Item) {
-            ViewModel.PlayerCharacters[ViewModel.charIndex].atktempbattleOnly += item.attack
-            ViewModel.PlayerCharacters[ViewModel.charIndex].matktempbattleOnly += item.mattack
-            ViewModel.PlayerCharacters[ViewModel.charIndex].deftempbattleOnly += item.defense
-            ViewModel.PlayerCharacters[ViewModel.charIndex].mdeftempbattleOnly += item.mdefense
-            ViewModel.PlayerCharacters[ViewModel.charIndex].str += item.strBoost
-            ViewModel.PlayerCharacters[ViewModel.charIndex].vit += item.vitBoost
-            ViewModel.PlayerCharacters[ViewModel.charIndex].agi += item.agiBoost
-            ViewModel.PlayerCharacters[ViewModel.charIndex].dex += item.dexBoost
-            ViewModel.PlayerCharacters[ViewModel.charIndex].int += item.intBoost
-            ViewModel.PlayerCharacters[ViewModel.charIndex].luc += item.lucBoost
-
-            item.isEquipped = true
-            notifyDataSetChanged()
-        }
-
         private fun unequipItem(item: Item) {
             ViewModel.PlayerCharacters[ViewModel.charIndex].atktempbattleOnly -= item.attack
             ViewModel.PlayerCharacters[ViewModel.charIndex].matktempbattleOnly -= item.mattack
@@ -183,7 +164,7 @@ internal fun MainActivity.setupInventoryViewListeners() {
             ViewModel.PlayerCharacters[ViewModel.charIndex].dex -= item.dexBoost
             ViewModel.PlayerCharacters[ViewModel.charIndex].int -= item.intBoost
             ViewModel.PlayerCharacters[ViewModel.charIndex].luc -= item.lucBoost
-          
+
             when (item.type) {
                 "Weapon" -> {
                     ViewModel.PlayerCharacters[ViewModel.charIndex].currentWeapon = null

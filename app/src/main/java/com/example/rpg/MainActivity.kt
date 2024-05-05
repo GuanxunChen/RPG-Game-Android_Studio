@@ -154,32 +154,6 @@ data class StatusEffect(
     val duration: Int
 )
 
-=======
-)
-
-enum class TargetType {
-    SINGLE, // Target one character
-    ALL,    // Target all characters
-    SELF    // Target the user
-}
-
-enum class Element {
-    FIRE,
-    ICE,
-    LIGHTNING,
-    EARTH,
-    WATER,
-    WIND,
-    HOLY,
-    DARK,
-    NONE
-}
-
-data class StatusEffect(
-    val effectType: EffectType,
-    val duration: Int
-)
-
 enum class EffectType {
     POISON,
     PARALYSIS,
@@ -192,8 +166,6 @@ enum class EffectType {
 }
 
 class StoryData : ViewModel() {
-    // Story View Use
-    class StoryData : ViewModel() {
     // Story View Use
     var storyLines: MutableList<String> = mutableListOf(
         "",
