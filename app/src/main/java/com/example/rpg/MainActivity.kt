@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModel
 import android.widget.Button
+import android.media.MediaPlayer
 
 import android.app.AlertDialog
 import android.content.Context
@@ -442,7 +443,7 @@ class StoryData : ViewModel() {
 class MainActivity : ComponentActivity() {
 
     internal lateinit var ViewModel: StoryData
-
+    private lateinit var bgm: MediaPlayer
     // Start up menu
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -451,6 +452,11 @@ class MainActivity : ComponentActivity() {
 
         // Main Menu
         setContentView(R.layout.mainmenu)
+
+        // Initialize audio file
+        bgm = MediaPlayer.create(this, R.raw.bgm1)
+        bgm.isLooping = true
+        bgm.start()
 
         //starting gear
         /*
@@ -468,6 +474,7 @@ class MainActivity : ComponentActivity() {
         val buttonQuit = findViewById<Button>(R.id.Quit)
 
         buttonStart.setOnClickListener {
+            bgm.release()
             setContentView(R.layout.storyview)
             setupStoryViewListeners()
         }
