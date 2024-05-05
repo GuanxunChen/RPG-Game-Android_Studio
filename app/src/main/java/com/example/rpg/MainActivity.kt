@@ -55,6 +55,10 @@ data class PlayerCharacter(
     var dodgetempbattleOnly: Int = 0,
     var crittempbattleOnly: Int = 0,
     var relationlevel: Int = 0,
+    var currentWeapon: Item? = null,
+    var currentHelm: Item? = null,
+    var currentArmor: Item? = null,
+    var currentBoots: Item? = null,
     val inventoryItems: MutableMap<Item, Int> = mutableMapOf(),
     val skills: MutableMap<String, Skill> = mutableMapOf(
         "Fireball" to fireball,
