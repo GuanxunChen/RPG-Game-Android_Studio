@@ -179,7 +179,7 @@ internal fun MainActivity.setupInventoryViewListeners() {
                     ViewModel.PlayerCharacters[ViewModel.charIndex].currentBoots = null
                 }
             }
-git
+
             item.isEquipped = false
             notifyDataSetChanged()
 
