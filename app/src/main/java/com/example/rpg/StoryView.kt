@@ -263,7 +263,25 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[0] = true
             ViewModel.storyButtonVisible[1] = true
             ViewModel.storyButtonVisible[2] = true
+
+            // Add item test
+            /*
+            ViewModel.PlayerCharacters[0].inventoryItems[BlankBook] = 1
+            ViewModel.storyLines[36 + ViewModel.storyPushBack] = "Book Added\n"
+            */
+
             // Refresh
+            ViewModel.storyLines[40 + ViewModel.storyPushBack] = "You, "+ ViewModel.PlayerCharacters[0].name+", are borned into this world.\n"
+
+            if(ViewModel.PlayerCharacters[0].gender == "Male")
+            {
+                ViewModel.storyLines[49 + ViewModel.storyPushBack] = "Loyd:\"No worries sister, I accept the fate. If this is what the fate of my child is, his name will be " + ViewModel.PlayerCharacters[0].name + " as Oracle stated.\"\n"
+            }
+            else
+            {
+                ViewModel.storyLines[49 + ViewModel.storyPushBack] = "Loyd:\"No worries sister, I accept the fate. If this is what the fate of my child is, her name will be " + ViewModel.PlayerCharacters[0].name + " as Oracle stated.\"\n"
+            }
+
             ViewModel.currentTxt = ViewModel.storyLines[ViewModel.storyIndex]
             setupStoryViewListeners()
         }

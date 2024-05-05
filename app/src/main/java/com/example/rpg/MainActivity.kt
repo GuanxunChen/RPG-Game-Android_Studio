@@ -62,7 +62,7 @@ data class PlayerCharacter(
     var currentBoots: Item? = null,
   
     val inventoryItems: MutableMap<Item, Int> = mutableMapOf(),
-    val skills: MutableMap<String, Skill> = mutableMapOf(
+    val skills: MutableMap<String, Skill> = mutableMapOf(/*
         "Fireball" to fireball,
         "Heal" to heal,
         "Sleep" to sleep,
@@ -71,9 +71,9 @@ data class PlayerCharacter(
         "Slash" to slash,
         "Pyromaniac" to Pyromaniac,
         "Elemental Affinity" to ElementalAffinity,
-        "Gale Force" to GaleForce,
+        "Gale Force" to GaleForce,*/
     ),
-    var skillUpgradePoints: Int = 10
+    var skillUpgradePoints: Int = 1
 )
 
 data class NPC(
@@ -203,8 +203,24 @@ class StoryData : ViewModel() {
         "",//32 User Input
         "After you’ve made your decision, without giving you a chance to speak again, your vision starts to blur.\n",
         "The surrounding fades, then brightens once again.\n",// Character Creation Complete, click next will be scene change
-        "Unfinished [4]",//35 Scene Changed
-        "Unfinished [4]",
+        "This, is a big town named Britangila.\n",//35 Scene Changed
+        "Britangila is located at the border of the Falion Empire, its economy heavily relies on the local farmers and miners, and every year, Lord Eliwood would host a Harvest Festival to thank the Goddess Chauntea for her blessing.\n",
+        "Everyone in the town of Britangila is supposed to be happy, drinking and dancing for the whole day.\n",
+        "But this year… Instead of joining the festival, Loyd stood in his living room, walking around impatiently, waiting for a good news.\n",
+        "While droplets of sweat slid down against his face, a loud cry of a baby burst from the room next door.\n",
+        "You, ___, are borned into this world.\n",//40 name
+        "A nun walks out of the room, and Loyd hurries his steps, going up towards the nun with a worried expression.\n",
+        "Loyd:\"Sister, is – is my wife alright? What about my child?\"\n",
+        "Nun:\"Mr.Forgar, please don’t panic, both the mother and child are safe, just like the Oracle said they will be.\"\n",
+        "Hearing the nun’s words, Loyd let out a sigh and took a few deep breaths, then he finally allowed the joy to take over him.\n",
+        "Loyd:\"Oh thank you! Thank you Goddess Chauntea! And thank you all as well sisters, I can’t ever be able to express the amount of gratitude!\"\n",
+        "Loyd bowed down towards the nun.\n",
+        "Nun:\"Mr.Forgar, please raise your head. It is our duty to help to give birth to a new life. And also… About the oracle…\"\n",
+        "The nun seems a little troubled, but Loyd simply shook his head.\n",
+        "Loyd:\"No worries sister, I accept the fate. If this is what the fate of my child is, He/Her name will be ___ as Oracle stated.\"\n",//49 Gender dependent
+        "The nun looked relieved as she heard the words.\n",
+        "Nun:\"Thank you for your understanding, Mr.Loyd. Goddess Chauntea would really appreciate your actions. May the Goddess bless you…\"\n",
+        "As she said her words, she led Loyd into the room where another older nun held the baby.\n",
         "Unfinished [4]",
         "Unfinished [4]",
         "Unfinished [4]",
@@ -271,7 +287,24 @@ class StoryData : ViewModel() {
         "",//32 User Input
         "After you’ve made your decision, without giving you a chance to speak again, your vision starts to blur.\n",
         "The surrounding fades, then brightens once again.\n",// Character Creation Complete, click next will be scene change
-        "Unfinished [4]",//35 Scene Changed
+        "This, is a big town named Britangila.\n",//35 Scene Changed
+        "Britangila is located at the border of the Falion Empire, its economy heavily relies on the local farmers and miners, and every year, Lord Eliwood would host a Harvest Festival to thank the Goddess Chauntea for her blessing.\n",
+        "Everyone in the town of Britangila is supposed to be happy, drinking and dancing for the whole day.\n",
+        "But this year… Instead of joining the festival, Loyd stood in his living room, walking around impatiently, waiting for a good news.\n",
+        "While droplets of sweat slid down against his face, a loud cry of a baby burst from the room next door.\n",
+        "You, ___, are borned into this world.\n",//40 name
+        "A nun walks out of the room, and Loyd hurries his steps, going up towards the nun with a worried expression.\n",
+        "Loyd:\"Sister, is – is my wife alright? What about my child?\"\n",
+        "Nun:\"Mr.Forgar, please don’t panic, both the mother and child are safe, just like the Oracle said they will be.\"\n",
+        "Hearing the nun’s words, Loyd let out a sigh and took a few deep breaths, then he finally allowed the joy to take over him.\n",
+        "Loyd:\"Oh thank you! Thank you Goddess Chauntea! And thank you all as well sisters, I can’t ever be able to express the amount of gratitude!\"\n",
+        "Loyd bowed down towards the nun.\n",
+        "Nun:\"Mr.Forgar, please raise your head. It is our duty to help to give birth to a new life. And also…. About the oracle…..\"\n",
+        "The nun seems a little troubled, but Loyd simply shook his head.\n",
+        "Loyd:\"No worries sister, I accept the fate. If this is what the fate of my child is, He/Her name will be ___ as Oracle stated.\"\n",//49 Gender dependent
+        "The nun looked relieved as she heard the words.\n",
+        "Nun:\"Thank you for your understanding, Mr.Loyd. Goddess Chauntea would really appreciate your actions. May the Goddess bless you…\"\n",
+        "As she said her words, she led Loyd into the room where another older nun held the baby.\n",
         "Unfinished [4]",
         "Unfinished [4]",
         "Unfinished [4]",
@@ -380,13 +413,14 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.mainmenu)
 
         //starting gear
+        /*
         ViewModel.PlayerCharacters[0].inventoryItems[iron_sword] = 1
         ViewModel.PlayerCharacters[0].inventoryItems[wand] = 1
         ViewModel.PlayerCharacters[0].inventoryItems[leather_cap] = 1
         ViewModel.PlayerCharacters[0].inventoryItems[leather_armor] = 1
         ViewModel.PlayerCharacters[0].inventoryItems[leather_boots] = 1
         ViewModel.PlayerCharacters[0].inventoryItems[potion] = 3
-        ViewModel.PlayerCharacters[0].inventoryItems[elixer] = 3
+        ViewModel.PlayerCharacters[0].inventoryItems[elixer] = 3*/
 
         val buttonStart = findViewById<Button>(R.id.Start)
         val buttonContinue = findViewById<Button>(R.id.Continue)

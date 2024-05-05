@@ -31,6 +31,7 @@ internal fun MainActivity.setupBattleViewListeners(player: PlayerCharacter, enem
 
 
     // Logic to perform an attack
+    /*
     val player = ViewModel.PlayerCharacters[0] // Assuming you have one player character for now
     val enemy = EnemyNPC.random() // Get a random enemy NPC
     val damage = calculateDamage(player, enemy)
@@ -57,6 +58,6 @@ internal fun MainActivity.setupBattleViewListeners(player: PlayerCharacter, enem
         val damage = (player.atk - enemy.def) * (player.level - enemy.level)
         return if (damage > 0) damage else 0
     }
-
+*/
     // Add more methods as needed to handle battle mechanics
 }

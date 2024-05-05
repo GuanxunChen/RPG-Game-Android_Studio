@@ -60,12 +60,29 @@ internal fun MainActivity.setupCharacterViewListeners() {
     ptAbility.text = ViewModel.PlayerCharacters[ViewModel.charIndex].remainAbilityPt.toString()
 
 
-    helm.text = ViewModel.PlayerCharacters[ViewModel.charIndex].str.toString()
-    armor.text = ViewModel.PlayerCharacters[ViewModel.charIndex].vit.toString()
-    boots.text = ViewModel.PlayerCharacters[ViewModel.charIndex].agi.toString()
-    ring.text = ViewModel.PlayerCharacters[ViewModel.charIndex].dex.toString()
-    main.text = ViewModel.PlayerCharacters[ViewModel.charIndex].int.toString()
-    sub.text = ViewModel.PlayerCharacters[ViewModel.charIndex].luc.toString()
+    if(ViewModel.PlayerCharacters[ViewModel.charIndex].currentHelm != null)
+    {helm.text = ViewModel.PlayerCharacters[ViewModel.charIndex].currentHelm?.name}
+    else
+    {helm.text = "None"}
+
+    if(ViewModel.PlayerCharacters[ViewModel.charIndex].currentArmor != null)
+    {armor.text = ViewModel.PlayerCharacters[ViewModel.charIndex].currentArmor?.name}
+    else
+    {armor.text = "None"}
+
+    if(ViewModel.PlayerCharacters[ViewModel.charIndex].currentBoots != null)
+    {boots.text = ViewModel.PlayerCharacters[ViewModel.charIndex].currentBoots?.name}
+    else
+    {boots.text = "None"}
+
+    if(ViewModel.PlayerCharacters[ViewModel.charIndex].currentWeapon != null)
+    {main.text = ViewModel.PlayerCharacters[ViewModel.charIndex].currentWeapon?.name}
+    else
+    {main.text = "None"}
+    ring.text = "None"
+    sub.text = "None"
+    //ring.text = ViewModel.PlayerCharacters[ViewModel.charIndex].current.name
+    //sub.text = ViewModel.PlayerCharacters[ViewModel.charIndex].currentHelm.name
     //char1Image.setImageResource(R.drawable.adult1)
 
     buttonStrAdd.setOnClickListener {
@@ -118,22 +135,28 @@ internal fun MainActivity.setupCharacterViewListeners() {
     }
 
     buttonChangeHelm.setOnClickListener {
-        //setContentView(R.layout.)
+        setContentView(R.layout.inventoryview)
+        setupInventoryViewListeners()
     }
     buttonChangeArmor.setOnClickListener {
-        //setContentView(R.layout.)
+        setContentView(R.layout.inventoryview)
+        setupInventoryViewListeners()
     }
     buttonChangeBoots.setOnClickListener {
-        //setContentView(R.layout.)
+        setContentView(R.layout.inventoryview)
+        setupInventoryViewListeners()
     }
     buttonChangeRing.setOnClickListener {
-        //setContentView(R.layout.)
+        setContentView(R.layout.inventoryview)
+        setupInventoryViewListeners()
     }
     buttonChangeMain.setOnClickListener {
-        //setContentView(R.layout.)
+        setContentView(R.layout.inventoryview)
+        setupInventoryViewListeners()
     }
     buttonChangeSub.setOnClickListener {
-        //setContentView(R.layout.)
+        setContentView(R.layout.inventoryview)
+        setupInventoryViewListeners()
     }
 
     buttonBack.setOnClickListener {
@@ -147,6 +170,6 @@ internal fun MainActivity.setupCharacterViewListeners() {
     }
     buttonItem.setOnClickListener {
         setContentView(R.layout.inventoryview)
-        setupSkillViewListeners()
+        setupInventoryViewListeners()
     }
 }

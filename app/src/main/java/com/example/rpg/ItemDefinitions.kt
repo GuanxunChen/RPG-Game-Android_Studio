@@ -188,3 +188,11 @@ val amulet_healing = Item(
     heals = 10,
     isSelfUsable = true
 )
+
+// Key Items
+val BlankBook = Item(
+    name = "Blank Book",
+    type = "Key",
+    description = "A Blank Book? Why is a book blank?",
+    isKey = true
+)
