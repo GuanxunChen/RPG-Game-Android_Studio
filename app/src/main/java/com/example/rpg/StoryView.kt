@@ -9,6 +9,7 @@ import android.widget.ScrollView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import kotlin.random.Random
 
 // Story View
 internal fun MainActivity.setupStoryViewListeners()
@@ -89,7 +90,7 @@ internal fun MainActivity.setupStoryViewListeners()
         ViewModel.currentTxt = currentTxt
 
         setContentView(R.layout.skillview)
-        //setupSkillViewListeners()
+        setupSkillViewListeners()
     }
 
     // Inventory Button
@@ -129,7 +130,7 @@ internal fun MainActivity.setupStoryViewListeners()
         }
 
         // Question section
-        if(ViewModel.storyIndex == 17+ViewModel.storyPushBack) // Type choice 1
+        if(ViewModel.storyIndex == 17) // Type choice 1
         {
             buttonChoice1.text = "You nervously laughed thinking this must be a joke of some sort"
             buttonChoice2.text = "You jokingly questioned how could a corpse be conscious like you are"
@@ -154,36 +155,114 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[8] = true
         }
 
-        if(ViewModel.storyIndex == 21+ViewModel.storyPushBack) // Character Growth - Selection1
+        if(!ViewModel.storyKeyFlags[0]) // if not yet declined the offer
         {
-            buttonChoice1.text = "Yes"
-            buttonChoice2.text = "No"
 
-            ViewModel.storyButtontag[5] = "Yes"
-            ViewModel.storyButtontag[6] = "No"
+            if(ViewModel.storyIndex == 23 + ViewModel.storyPushBack &&
+                ViewModel.storyLines[22 + ViewModel.storyPushBack-5] == "You Declined the offer.\n") //
+            {
+                ViewModel.currentTxt = ""
+                ViewModel.storyIndex = 0
+                ViewModel.storyPushBack = 0
+                ViewModel.storyKeyFlags[0] = true
+                ViewModel.storyLines = ViewModel.OriginStoryLines
+                ViewModel.currentTxt = ViewModel.storyLines[ViewModel.storyIndex]
+                setupStoryViewListeners()
+            }
+
+            if (!ViewModel.storyKeyFlags[1] && ViewModel.storyIndex == 21 + ViewModel.storyPushBack) // Character Growth - Selection1
+            {
+                buttonChoice1.text = "Yes"
+                buttonChoice2.text = "No"
+
+                ViewModel.storyButtontag[5] = "Yes"
+                ViewModel.storyButtontag[6] = "No"
+
+                buttonNext.visibility = View.INVISIBLE
+                buttonChoice1.visibility = View.VISIBLE
+                buttonChoice2.visibility = View.VISIBLE
+
+                ViewModel.storyButtonVisible[4] = false
+                ViewModel.storyButtonVisible[5] = true
+                ViewModel.storyButtonVisible[6] = true
+            }
+        }
+        else
+        {
+            if (ViewModel.storyIndex == 21 + ViewModel.storyPushBack) // Character Growth - Selection1
+            {
+                buttonChoice1.text = "Yes"
+                buttonChoice2.text = "You feel this scene to be familiar. And out of instinct, you accepted the offer"
+
+                ViewModel.storyButtontag[5] = "Yes"
+                ViewModel.storyButtontag[6] = "You feel this scene to be familiar. And out of instinct, you accepted the offer"
+
+                buttonNext.visibility = View.INVISIBLE
+                buttonChoice1.visibility = View.VISIBLE
+                buttonChoice2.visibility = View.VISIBLE
+
+                ViewModel.storyButtonVisible[4] = false
+                ViewModel.storyButtonVisible[5] = true
+                ViewModel.storyButtonVisible[6] = true
+            }
+        }
+
+        if (ViewModel.storyIndex == 27 + ViewModel.storyPushBack) // Character Gender
+        {
+            buttonChoice1.text = "Male"
+            buttonChoice2.text = "Female"
+            buttonChoice3.text = "You told the Orb that you are unsure"
+            buttonChoice4.text = "You stood silently without a word"
+
+            ViewModel.storyButtontag[5] = "Male"
+            ViewModel.storyButtontag[6] = "Female"
+            ViewModel.storyButtontag[7] = "You told the Orb that you are unsure"
+            ViewModel.storyButtontag[8] = "You stood silently without a word"
 
             buttonNext.visibility = View.INVISIBLE
             buttonChoice1.visibility = View.VISIBLE
             buttonChoice2.visibility = View.VISIBLE
+            buttonChoice3.visibility = View.VISIBLE
+            buttonChoice4.visibility = View.VISIBLE
 
             ViewModel.storyButtonVisible[4] = false
             ViewModel.storyButtonVisible[5] = true
             ViewModel.storyButtonVisible[6] = true
+            ViewModel.storyButtonVisible[7] = true
+            ViewModel.storyButtonVisible[8] = true
         }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        if (ViewModel.storyIndex == 31 + ViewModel.storyPushBack) // Character Nane
+        {
+            val input = EditText(this)
+            val dialog = AlertDialog.Builder(this)
+                .setTitle("Enter 'Your' First Name\n[please be appropriate at least]")
+                .setView(input)
+                .setPositiveButton("OK") { dialog, _ ->
+                    // Update ViewModel.PlayerCharacters[0].name with the input value
+                    ViewModel.PlayerCharacters[0].name = input.text.toString()
+                    // Dismiss the dialog after getting input and update the story line
+                    dialog.dismiss()
+
+                    ViewModel.storyLines[32 + ViewModel.storyPushBack] =
+                        "Orb:\"" + input.text.toString() + "? Okay, then we wish you the best luck in your new life. Farewell, " + input.text.toString() + ".\"\n"
+                }
+                .create()
+            dialog.show()
+        }
 
         // Stage Change section
-        if(ViewModel.storyIndex == 10+ViewModel.storyPushBack) // Character Creation - Finish
+        if(ViewModel.storyIndex == 35+ViewModel.storyPushBack) // Character Creation - Finish
         {
             buttonCharacter.visibility = View.VISIBLE
             buttonSkill.visibility = View.VISIBLE
             buttonInventory.visibility = View.VISIBLE
 
+            ViewModel.storyKeyFlags[3] = true
+
             ViewModel.storyButtonVisible[0] = true
             ViewModel.storyButtonVisible[1] = true
             ViewModel.storyButtonVisible[2] = true
-
             // Refresh
             ViewModel.currentTxt = ViewModel.storyLines[ViewModel.storyIndex]
             setupStoryViewListeners()
@@ -192,7 +271,7 @@ internal fun MainActivity.setupStoryViewListeners()
 
     buttonChoice1.setOnClickListener {
         // Answer section
-        if(ViewModel.storyIndex == 17+ViewModel.storyPushBack) // Type choice 1 -- Answer
+        if(ViewModel.storyIndex == 17) // Type choice 1 -- Answer
         {
             ViewModel.storyLines[18+ViewModel.storyPushBack] = "You nervously laughed thinking this must be a joke of some sort.\n"
             ViewModel.storyLines.add(19+ViewModel.storyPushBack, "The orb did not stop at your nervous laughing face, it continued its statement.\n")
@@ -211,7 +290,7 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[8] = false
         }
 
-        if(ViewModel.storyIndex == 21+ViewModel.storyPushBack) //
+        if(ViewModel.storyIndex == 21+ViewModel.storyPushBack) // Accept offer
         {
             ViewModel.storyLines[22+ViewModel.storyPushBack] = "You accepted the offer.\n"
 
@@ -223,8 +302,27 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[5] = false
             ViewModel.storyButtonVisible[6] = false
         }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        if(ViewModel.storyIndex == 27 + ViewModel.storyPushBack) // Character Gender
+        {
+            ViewModel.storyLines[28+ViewModel.storyPushBack] = "You choose to be a Male.\n"
+
+            ViewModel.PlayerCharacters[0].gender = "Male"
+
+            buttonNext.visibility = View.VISIBLE
+            buttonChoice1.visibility = View.INVISIBLE
+            buttonChoice2.visibility = View.INVISIBLE
+            buttonChoice3.visibility = View.INVISIBLE
+            buttonChoice4.visibility = View.INVISIBLE
+
+            ViewModel.storyButtonVisible[4] = true
+            ViewModel.storyButtonVisible[5] = false
+            ViewModel.storyButtonVisible[6] = false
+            ViewModel.storyButtonVisible[7] = false
+            ViewModel.storyButtonVisible[8] = false
+        }
+
+        /*
         if(ViewModel.storyIndex == 6)// Character Creation - Choose Power
         {
             ViewModel.PlayerCharacters[0].type = "Magic"
@@ -311,7 +409,7 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[7] = false
             ViewModel.storyButtonVisible[8] = false
         }
-
+*/
         // Continue the story
         ViewModel.storyIndex++
 
@@ -326,6 +424,7 @@ internal fun MainActivity.setupStoryViewListeners()
         }
 
         // Question section
+        /*
         if(ViewModel.storyIndex == 6) // Character Creation - Choose Power
         {
             buttonChoice1.text = "Power of Magic"
@@ -410,13 +509,12 @@ internal fun MainActivity.setupStoryViewListeners()
                 }
                 .create()
             dialog.show()
-        }
+        }*/
     }
-
 
     buttonChoice2.setOnClickListener {
         // Answer section
-        if(ViewModel.storyIndex == 17+ViewModel.storyPushBack)
+        if(ViewModel.storyIndex == 17)
         {
             ViewModel.storyLines[18+ViewModel.storyPushBack] = "You jokingly questioned how could a corpse be conscious like you are\n"
             ViewModel.storyLines.add(19+ViewModel.storyPushBack, "The orb silenced for seconds, then replied to you.\n")
@@ -436,15 +534,60 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[8] = false
         }
 
-        if(ViewModel.storyIndex == 21+ViewModel.storyPushBack) //
+        if(!ViewModel.storyKeyFlags[0]) // if first declined offer
         {
-            ViewModel.storyLines[22+ViewModel.storyPushBack] = "You Declined the offer.\n"
-            ViewModel.storyLines.add(23+ViewModel.storyPushBack, "The moment you decline the offer, with a flash boom, your head turns dizzy, and your consciousness fades away.\n")
-            ViewModel.storyLines.add(24+ViewModel.storyPushBack,"Before you get to change your mind and say anything, you see a bright light that blinds you from soul to mind…..")
-            ViewModel.storyLines.add(25+ViewModel.storyPushBack,"Then you realize, you woke up from the bed.")
-            ViewModel.storyLines.add(26+ViewModel.storyPushBack,"Without remembering anything about the rough 20 minutes of sleep, you walked out with a tiring body that would collapse any second.")
-            ViewModel.storyLines.add(27+ViewModel.storyPushBack,"You went to your normal day, and at one point, you sat on the chair and lay on the table.")
+            if(ViewModel.storyIndex == 21+ViewModel.storyPushBack) //
+            {
+                ViewModel.storyLines[22+ViewModel.storyPushBack] = "You Declined the offer.\n"
+                ViewModel.storyLines.add(23+ViewModel.storyPushBack, "The moment you decline the offer, with a flash boom, your head turns dizzy, and your consciousness fades away.\n")
+                ViewModel.storyLines.add(24+ViewModel.storyPushBack,"Before you get to change your mind and say anything, you see a bright light that blinds you from soul to mind…..\n")
+                ViewModel.storyLines.add(25+ViewModel.storyPushBack,"Then you realize, you woke up from the bed.\n")
+                ViewModel.storyLines.add(26+ViewModel.storyPushBack,"Without remembering anything about the rough 20 minutes of sleep, you walked out with a tiring body that would collapse any second.\n")
+                ViewModel.storyLines.add(27+ViewModel.storyPushBack,"You went to your normal day, and at one point, you sat on the chair and lay on the table.....\n")
+                ViewModel.storyPushBack+=5
 
+                buttonNext.visibility = View.VISIBLE
+                buttonChoice1.visibility = View.INVISIBLE
+                buttonChoice2.visibility = View.INVISIBLE
+                buttonChoice3.visibility = View.INVISIBLE
+                buttonChoice4.visibility = View.INVISIBLE
+
+                ViewModel.storyKeyFlags[1] = true
+
+                ViewModel.storyButtonVisible[4] = true
+                ViewModel.storyButtonVisible[5] = false
+                ViewModel.storyButtonVisible[6] = false
+                ViewModel.storyButtonVisible[7] = false
+                ViewModel.storyButtonVisible[8] = false
+            }
+        }
+        else
+        {
+            if(ViewModel.storyIndex == 21+ViewModel.storyPushBack) //
+            {
+                ViewModel.storyLines[22+ViewModel.storyPushBack] = "You feel the scene being awkwardly familiar.\n"
+                ViewModel.storyLines.add(23+ViewModel.storyPushBack, "Out of some sort of instinct, you choose to accept offer -- This time.\n")
+                ViewModel.storyPushBack+=1
+
+                buttonNext.visibility = View.VISIBLE
+                buttonChoice1.visibility = View.INVISIBLE
+                buttonChoice2.visibility = View.INVISIBLE
+                buttonChoice3.visibility = View.INVISIBLE
+                buttonChoice4.visibility = View.INVISIBLE
+
+                ViewModel.storyButtonVisible[4] = true
+                ViewModel.storyButtonVisible[5] = false
+                ViewModel.storyButtonVisible[6] = false
+                ViewModel.storyButtonVisible[7] = false
+                ViewModel.storyButtonVisible[8] = false
+            }
+        }
+
+        if(ViewModel.storyIndex == 27 + ViewModel.storyPushBack) // Character Gender
+        {
+            ViewModel.storyLines[28+ViewModel.storyPushBack] = "You choose to be a Female.\n"
+
+            ViewModel.PlayerCharacters[0].gender = "Female"
             buttonNext.visibility = View.VISIBLE
             buttonChoice1.visibility = View.INVISIBLE
             buttonChoice2.visibility = View.INVISIBLE
@@ -457,7 +600,8 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[7] = false
             ViewModel.storyButtonVisible[8] = false
         }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        /*
         if(ViewModel.storyIndex == 6)// Character Creation - Choose Power
         {
             ViewModel.PlayerCharacters[0].type = "Ki"
@@ -543,7 +687,7 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[6] = false
             ViewModel.storyButtonVisible[7] = false
             ViewModel.storyButtonVisible[8] = false
-        }
+        }*/
 
         // Continue the story
         ViewModel.storyIndex++
@@ -559,6 +703,7 @@ internal fun MainActivity.setupStoryViewListeners()
         }
 
         // Question section
+        /*
         if(ViewModel.storyIndex == 6) // Character Creation - Choose Power
         {
             buttonChoice1.text = "Power of Magic"
@@ -643,12 +788,12 @@ internal fun MainActivity.setupStoryViewListeners()
                 }
                 .create()
             dialog.show()
-        }
+        }*/
     }
 
     buttonChoice3.setOnClickListener {
         // Answer section
-        if(ViewModel.storyIndex == 17+ViewModel.storyPushBack)
+        if(ViewModel.storyIndex == 17)
         {
             ViewModel.storyLines[18+ViewModel.storyPushBack] = "You were terrified from this news and ask for any other way to stay alive\n"
             ViewModel.storyLines.add(19+ViewModel.storyPushBack, "The white glowing orb flickered a few times.\n")
@@ -667,7 +812,36 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[7] = false
             ViewModel.storyButtonVisible[8] = false
         }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        if(ViewModel.storyIndex == 27 + ViewModel.storyPushBack) // Character Gender
+        {
+            ViewModel.storyLines[28+ViewModel.storyPushBack] = "Orb:\"Well then, we will let fate choose your destiny.\"\n"
+
+            val randomNumber = Random.nextInt(2)
+
+            if(randomNumber == 0)
+            {
+                ViewModel.PlayerCharacters[0].gender = "Male"
+            }
+            else
+            {
+                ViewModel.PlayerCharacters[0].gender = "Female"
+            }
+
+            buttonNext.visibility = View.VISIBLE
+            buttonChoice1.visibility = View.INVISIBLE
+            buttonChoice2.visibility = View.INVISIBLE
+            buttonChoice3.visibility = View.INVISIBLE
+            buttonChoice4.visibility = View.INVISIBLE
+
+            ViewModel.storyButtonVisible[4] = true
+            ViewModel.storyButtonVisible[5] = false
+            ViewModel.storyButtonVisible[6] = false
+            ViewModel.storyButtonVisible[7] = false
+            ViewModel.storyButtonVisible[8] = false
+        }
+
+        /*
         if(ViewModel.storyIndex == 7) // Character Creation - Choose Weapon
         {
             when(ViewModel.PlayerCharacters[0].type)
@@ -738,7 +912,7 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[6] = false
             ViewModel.storyButtonVisible[7] = false
             ViewModel.storyButtonVisible[8] = false
-        }
+        }*/
 
         // Continue the story
         ViewModel.storyIndex++
@@ -754,7 +928,7 @@ internal fun MainActivity.setupStoryViewListeners()
         }
 
         // Question section
-        if(ViewModel.storyIndex == 7) // Character Creation - Choose Weapon
+        /*if(ViewModel.storyIndex == 7) // Character Creation - Choose Weapon
         {
             when(ViewModel.PlayerCharacters[0].type)
             {
@@ -821,7 +995,7 @@ internal fun MainActivity.setupStoryViewListeners()
                 }
                 .create()
             dialog.show()
-        }
+        }*/
     }
 
     buttonChoice4.setOnClickListener {
@@ -844,7 +1018,6 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[7] = false
             ViewModel.storyButtonVisible[8] = false
         }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         if(ViewModel.storyIndex == 22) // Character Growth - Selection1
         {
@@ -870,6 +1043,37 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[8] = false
         }
 
+        if(ViewModel.storyIndex == 27 + ViewModel.storyPushBack) // Character Gender
+        {
+            ViewModel.storyLines[28+ViewModel.storyPushBack] = "Orb:\"....Uncooperative, is also a choice.\"\n"
+
+            val randomNumber = Random.nextInt(2)
+
+            if(randomNumber == 0)
+            {
+                ViewModel.PlayerCharacters[0].gender = "Male"
+            }
+            else
+            {
+                ViewModel.PlayerCharacters[0].gender = "Female"
+            }
+
+            buttonNext.visibility = View.VISIBLE
+            buttonChoice1.visibility = View.INVISIBLE
+            buttonChoice2.visibility = View.INVISIBLE
+            buttonChoice3.visibility = View.INVISIBLE
+            buttonChoice4.visibility = View.INVISIBLE
+
+            ViewModel.storyKeyFlags[2] = true
+
+            ViewModel.storyButtonVisible[4] = true
+            ViewModel.storyButtonVisible[5] = false
+            ViewModel.storyButtonVisible[6] = false
+            ViewModel.storyButtonVisible[7] = false
+            ViewModel.storyButtonVisible[8] = false
+        }
+
+
         // Continue the story
         ViewModel.storyIndex++
 
@@ -884,6 +1088,7 @@ internal fun MainActivity.setupStoryViewListeners()
         }
 
         // Question section
+        /*
         if(ViewModel.storyIndex == 8) // Character Creation - Name
         {
             val input = EditText(this)
@@ -896,6 +1101,6 @@ internal fun MainActivity.setupStoryViewListeners()
                 }
                 .create()
             dialog.show()
-        }
+        }*/
     }
 }

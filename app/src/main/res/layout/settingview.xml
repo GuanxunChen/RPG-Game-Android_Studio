@@ -55,5 +55,192 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"/>
+        android:orientation="vertical">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/saveText0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="----------None----------" />
+
+            <Button
+                android:id="@+id/save0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+            <Button
+                android:id="@+id/delete0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/saveText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="----------None----------" />
+
+            <Button
+                android:id="@+id/save1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+            <Button
+                android:id="@+id/delete1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/saveText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="----------None----------" />
+
+            <Button
+                android:id="@+id/save2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+            <Button
+                android:id="@+id/delete2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/saveText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="----------None----------" />
+
+            <Button
+                android:id="@+id/save3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+            <Button
+                android:id="@+id/delete3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/saveText4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="----------None----------" />
+
+            <Button
+                android:id="@+id/save4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+            <Button
+                android:id="@+id/delete4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/saveText5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="----------None----------" />
+
+            <Button
+                android:id="@+id/save5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+            <Button
+                android:id="@+id/delete5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/saveText6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="----------None----------" />
+
+            <Button
+                android:id="@+id/save6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+            <Button
+                android:id="@+id/delete6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/saveText7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="----------None----------" />
+
+            <Button
+                android:id="@+id/save7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+            <Button
+                android:id="@+id/delete7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete" />
+        </TableRow>
+
+    </LinearLayout>
 </LinearLayout>

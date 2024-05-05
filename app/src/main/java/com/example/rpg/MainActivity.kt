@@ -55,10 +55,12 @@ data class PlayerCharacter(
     var dodgetempbattleOnly: Int = 0,
     var crittempbattleOnly: Int = 0,
     var relationlevel: Int = 0,
+  
     var currentWeapon: Item? = null,
     var currentHelm: Item? = null,
     var currentArmor: Item? = null,
     var currentBoots: Item? = null,
+  
     val inventoryItems: MutableMap<Item, Int> = mutableMapOf(),
     val skills: MutableMap<String, Skill> = mutableMapOf(
         "Fireball" to fireball,
@@ -152,6 +154,32 @@ data class StatusEffect(
     val duration: Int
 )
 
+=======
+)
+
+enum class TargetType {
+    SINGLE, // Target one character
+    ALL,    // Target all characters
+    SELF    // Target the user
+}
+
+enum class Element {
+    FIRE,
+    ICE,
+    LIGHTNING,
+    EARTH,
+    WATER,
+    WIND,
+    HOLY,
+    DARK,
+    NONE
+}
+
+data class StatusEffect(
+    val effectType: EffectType,
+    val duration: Int
+)
+
 enum class EffectType {
     POISON,
     PARALYSIS,
@@ -165,18 +193,20 @@ enum class EffectType {
 
 class StoryData : ViewModel() {
     // Story View Use
+    class StoryData : ViewModel() {
+    // Story View Use
     var storyLines: MutableList<String> = mutableListOf(
         "",
         "It is a sunny day, and the weather forecast says there will be no rain or snow. \n",//1
         "Birds are chirping, flowers are blooming....\n",
         "On days like this, people as young as you…. Should really sleep on time.\n",
         "The light shining onto your body feels so hot, your closed eyes twitch slightly as you feel your heart start to ache.\n",
-        "Breathe is fastening, blood is pumping…. within every second, you can feel your body weakening.\n",//5
+        "Breath quickens, blood is pumping....Within every second, you can feel your body weakening.\n",//5
         "And when your hand finally reaches for your heart, it is all too late.\n",//6
         "As if there’s a lightning that suddenly struck you, you moan in agony and pain.\n",//7
         "Your consciousness fades away alone with the burning feeling, and fragments of thoughts slowly sink down into the eternal darkness.\n",//8
         "",//9 flash image
-        "When you regain your consciousness, in front of your eyes floats a large glowing orb as big as a truck.",//10 Character Creation Finish
+        "When you regain your consciousness, in front of your eyes floats a large glowing orb as big as a truck.\n",//10 Character Creation Finish
         "You were stunned, not sure what you are looking at and why you are here.\n",
         "But before you got to do anything, a robotic voice came from the orb, it speaks.\n",
         "Orb:\"Connection with the subject is established. Now loading the Introduction module…..\"\n",
@@ -185,22 +215,23 @@ class StoryData : ViewModel() {
         "Orb:\"The reason for your death seems to be a sudden heart attack, likely due to your inconsistent sleeping hours.\"\n ",
         "Hearing the words, you try to dive back in your memory, yet only to find your memory missing and incomplete. So you...\n",// Choice 1
         "",//18 User Input
-        "Orb:\"....As much as you may be concerned, the reason you are here is a coincidence. Your soul collided with the System of Reincarnation while we were traveling by your dimension.\"\n",
+        "Orb:\"As much as you may be concerned, the reason you are here is a coincidence.... Your soul collided with the System of Reincarnation while we were traveling by your dimension.\"\n",
         "Orb:\"For that, we would like to reincarnate you into another world. However, you do have your own choice.\"\n",//20
         "Orb:\"Question – Would you like to accept the offer?\"\n",
         "",//22 User Input
-        "Orb:\"Good….. Now, for your well being, we would like to inform you of the following.\"",
+        "Orb:\"Good….. Now, for your well being, we would like to inform you of the following.\"\n",
         "Orb:\"The world you are reincarnating to is a world of sword and magic. Monsters and different mythical creatures exist, but humans are still the dominant race….Yet it does not mean you are safe from danger, so please keep that in mind.\"\n",
         "Orb:\"Now, before your reincarnation begins, there is one last thing.\"\n",
-        "Orb:\"Although we don’t have much authority to interfere with that world, yet we can at least let you choose your own name and gender…..\"",
-        "Orb:\"Question – What would you like to be, boy or girl?\"",
+        "Orb:\"Although we don’t have much authority to interfere with that world, yet we can at least let you choose your own name and gender…..\"\n",
+        "Orb:\"Question – What would you like to be, male or female?\"\n",
         "",//28 User Input
-        "Orb:\"Let us proceed.\"",
-        "Orb:\"Question – What would you like your name to be?\"",
-        "",//31 User Input
-        "After you’ve made your decision, without giving you a chance to speak again, your vision starts to blur.",
-        "The surrounding fades, then brightens once again.",
-        "Unfinished [4]",//34 Scene Change
+        "Orb:\"....Let us proceed.\"\n",
+        "Orb:\"Question – What would you like your name to be?\"\n",
+        "",//31 Input Space
+        "",//32 User Input
+        "After you’ve made your decision, without giving you a chance to speak again, your vision starts to blur.\n",
+        "The surrounding fades, then brightens once again.\n",// Character Creation Complete, click next will be scene change
+        "Unfinished [4]",//35 Scene Changed
         "Unfinished [4]",
         "Unfinished [4]",
         "Unfinished [4]",
@@ -238,12 +269,12 @@ class StoryData : ViewModel() {
         "Birds are chirping, flowers are blooming....\n",
         "On days like this, people as young as you…. Should really sleep on time.\n",
         "The light shining onto your body feels so hot, your closed eyes twitch slightly as you feel your heart start to ache.\n",
-        "Breathe is fastening, blood is pumping…. within every second, you can feel your body weakening.\n",//5
+        "Breath quickens, blood is pumping....Within every second, you can feel your body weakening.\n",//5
         "And when your hand finally reaches for your heart, it is all too late.\n",//6
         "As if there’s a lightning that suddenly struck you, you moan in agony and pain.\n",//7
         "Your consciousness fades away alone with the burning feeling, and fragments of thoughts slowly sink down into the eternal darkness.\n",//8
         "",//9 flash image
-        "When you regain your consciousness, in front of your eyes floats a large glowing orb as big as a truck.",//10 Character Creation Finish
+        "When you regain your consciousness, in front of your eyes floats a large glowing orb as big as a truck.\n",//10 Character Creation Finish
         "You were stunned, not sure what you are looking at and why you are here.\n",
         "But before you got to do anything, a robotic voice came from the orb, it speaks.\n",
         "Orb:\"Connection with the subject is established. Now loading the Introduction module…..\"\n",
@@ -252,22 +283,23 @@ class StoryData : ViewModel() {
         "Orb:\"The reason for your death seems to be a sudden heart attack, likely due to your inconsistent sleeping hours.\"\n ",
         "Hearing the words, you try to dive back in your memory, yet only to find your memory missing and incomplete. So you...\n",// Choice 1
         "",//18 User Input
-        "Orb:\"....As much as you may be concerned, the reason you are here is a coincidence. Your soul collided with the System of Reincarnation while we were traveling by your dimension.\"\n",
+        "Orb:\"As much as you may be concerned, the reason you are here is a coincidence.... Your soul collided with the System of Reincarnation while we were traveling by your dimension.\"\n",
         "Orb:\"For that, we would like to reincarnate you into another world. However, you do have your own choice.\"\n",//20
         "Orb:\"Question – Would you like to accept the offer?\"\n",
         "",//22 User Input
-        "Orb:\"Good….. Now, for your well being, we would like to inform you of the following.\"",
+        "Orb:\"Good….. Now, for your well being, we would like to inform you of the following.\"\n",
         "Orb:\"The world you are reincarnating to is a world of sword and magic. Monsters and different mythical creatures exist, but humans are still the dominant race….Yet it does not mean you are safe from danger, so please keep that in mind.\"\n",
         "Orb:\"Now, before your reincarnation begins, there is one last thing.\"\n",
-        "Orb:\"Although we don’t have much authority to interfere with that world, yet we can at least let you choose your own name and gender…..\"",
-        "Orb:\"Question – What would you like to be, boy or girl?\"",
+        "Orb:\"Although we don’t have much authority to interfere with that world, yet we can at least let you choose your own name and gender…..\"\n",
+        "Orb:\"Question – What would you like to be, male or female?\"\n",
         "",//28 User Input
-        "Orb:\"Let us proceed.\"",
-        "Orb:\"Question – What would you like your name to be?\"",
-        "",//31 User Input
-        "After you’ve made your decision, without giving you a chance to speak again, your vision starts to blur.",
-        "The surrounding fades, then brightens once again.",
-        "Unfinished [4]",//34 Scene Change
+        "Orb:\"....Let us proceed.\"\n",
+        "Orb:\"Question – What would you like your name to be?\"\n",
+        "",//31 Input Space
+        "",//32 User Input
+        "After you’ve made your decision, without giving you a chance to speak again, your vision starts to blur.\n",
+        "The surrounding fades, then brightens once again.\n",// Character Creation Complete, click next will be scene change
+        "Unfinished [4]",//35 Scene Changed
         "Unfinished [4]",
         "Unfinished [4]",
         "Unfinished [4]",
@@ -298,6 +330,15 @@ class StoryData : ViewModel() {
         "Unfinished [4]",
         "Unfinished [4]",
         "Unfinished [4]")
+
+    var storyKeyFlags = mutableListOf(
+        false, false,// decline offer of reincarnation
+        false,// uncooperative during reincarnation stage
+        false, // Character created
+        true, // Continue Button
+        false,false,false,false, // 4 Choice Button
+        false,false // Char name
+    )
 
     var aggressiveness: Int = 0
     var passiveness: Int = 0
