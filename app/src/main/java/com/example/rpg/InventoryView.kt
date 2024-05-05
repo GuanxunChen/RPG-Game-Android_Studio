@@ -1,5 +1,6 @@
 package com.example.rpg
 
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -93,9 +94,62 @@ internal fun MainActivity.setupInventoryViewListeners() {
                         useItem(currentItem.key)
                         notifyDataSetChanged()
                     }
-
                 }
             }
+        }
+
+        private fun isEquipped(item: Item): Boolean {
+            return item.isEquipped
+        }
+
+        private fun equipItem(item: Item) {
+            val character = ViewModel.PlayerCharacters[ViewModel.charIndex]
+            val itemType = item.type
+
+            // Find and unequip any existing item of the same type from the filtered list
+            filteredItems.keys.forEach { currentItem ->
+                if (currentItem.type == itemType && currentItem.isEquipped) {
+                    unequipItem(currentItem)
+                    return@forEach
+                }
+            }
+
+            ViewModel.PlayerCharacters[ViewModel.charIndex].atktempbattleOnly += item.attack
+            ViewModel.PlayerCharacters[ViewModel.charIndex].matktempbattleOnly += item.mattack
+            ViewModel.PlayerCharacters[ViewModel.charIndex].deftempbattleOnly += item.defense
+            ViewModel.PlayerCharacters[ViewModel.charIndex].mdeftempbattleOnly += item.mdefense
+            ViewModel.PlayerCharacters[ViewModel.charIndex].str += item.strBoost
+            ViewModel.PlayerCharacters[ViewModel.charIndex].vit += item.vitBoost
+            ViewModel.PlayerCharacters[ViewModel.charIndex].agi += item.agiBoost
+            ViewModel.PlayerCharacters[ViewModel.charIndex].dex += item.dexBoost
+            ViewModel.PlayerCharacters[ViewModel.charIndex].int += item.intBoost
+            ViewModel.PlayerCharacters[ViewModel.charIndex].luc += item.lucBoost
+
+            item.isEquipped = true
+
+            when (item.type) {
+                "Weapon" -> {
+                    ViewModel.PlayerCharacters[ViewModel.charIndex].currentWeapon = item
+                }
+                "Helmet" -> {
+                    ViewModel.PlayerCharacters[ViewModel.charIndex].currentHelm = item
+                }
+                "Armor" -> {
+                    ViewModel.PlayerCharacters[ViewModel.charIndex].currentArmor = item
+                }
+                "Boots" -> {
+                    ViewModel.PlayerCharacters[ViewModel.charIndex].currentBoots = item
+                }
+            }
+
+
+            notifyDataSetChanged()
+
+            // Log the values of currentWeapon, currentHelm, currentBoots, and currentArmor
+            Log.d("Equipment", "Current Weapon: ${ViewModel.PlayerCharacters[ViewModel.charIndex].currentWeapon}")
+            Log.d("Equipment", "Current Helmet: ${ViewModel.PlayerCharacters[ViewModel.charIndex].currentHelm}")
+            Log.d("Equipment", "Current Boots: ${ViewModel.PlayerCharacters[ViewModel.charIndex].currentBoots}")
+            Log.d("Equipment", "Current Armor: ${ViewModel.PlayerCharacters[ViewModel.charIndex].currentArmor}")
         }
 
         private fun isEquipped(item: Item): Boolean {
@@ -129,9 +183,30 @@ internal fun MainActivity.setupInventoryViewListeners() {
             ViewModel.PlayerCharacters[ViewModel.charIndex].dex -= item.dexBoost
             ViewModel.PlayerCharacters[ViewModel.charIndex].int -= item.intBoost
             ViewModel.PlayerCharacters[ViewModel.charIndex].luc -= item.lucBoost
+          
+            when (item.type) {
+                "Weapon" -> {
+                    ViewModel.PlayerCharacters[ViewModel.charIndex].currentWeapon = null
+                }
+                "Helmet" -> {
+                    ViewModel.PlayerCharacters[ViewModel.charIndex].currentHelm = null
+                }
+                "Armor" -> {
+                    ViewModel.PlayerCharacters[ViewModel.charIndex].currentArmor = null
+                }
+                "Boots" -> {
+                    ViewModel.PlayerCharacters[ViewModel.charIndex].currentBoots = null
+                }
+            }
 
             item.isEquipped = false
             notifyDataSetChanged()
+
+            // Log the values of currentWeapon, currentHelm, currentBoots, and currentArmor
+            Log.d("Equipment", "Current Weapon: ${ViewModel.PlayerCharacters[ViewModel.charIndex].currentWeapon}")
+            Log.d("Equipment", "Current Helmet: ${ViewModel.PlayerCharacters[ViewModel.charIndex].currentHelm}")
+            Log.d("Equipment", "Current Boots: ${ViewModel.PlayerCharacters[ViewModel.charIndex].currentBoots}")
+            Log.d("Equipment", "Current Armor: ${ViewModel.PlayerCharacters[ViewModel.charIndex].currentArmor}")
         }
 
         private fun useItem(item: Item) {

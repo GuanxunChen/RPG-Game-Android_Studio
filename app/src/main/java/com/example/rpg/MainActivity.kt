@@ -55,6 +55,12 @@ data class PlayerCharacter(
     var dodgetempbattleOnly: Int = 0,
     var crittempbattleOnly: Int = 0,
     var relationlevel: Int = 0,
+  
+    var currentWeapon: Item? = null,
+    var currentHelm: Item? = null,
+    var currentArmor: Item? = null,
+    var currentBoots: Item? = null,
+  
     val inventoryItems: MutableMap<Item, Int> = mutableMapOf(),
     val skills: MutableMap<String, Skill> = mutableMapOf(
         "Fireball" to fireball,
@@ -148,6 +154,32 @@ data class StatusEffect(
     val duration: Int
 )
 
+=======
+)
+
+enum class TargetType {
+    SINGLE, // Target one character
+    ALL,    // Target all characters
+    SELF    // Target the user
+}
+
+enum class Element {
+    FIRE,
+    ICE,
+    LIGHTNING,
+    EARTH,
+    WATER,
+    WIND,
+    HOLY,
+    DARK,
+    NONE
+}
+
+data class StatusEffect(
+    val effectType: EffectType,
+    val duration: Int
+)
+
 enum class EffectType {
     POISON,
     PARALYSIS,
@@ -160,6 +192,8 @@ enum class EffectType {
 }
 
 class StoryData : ViewModel() {
+    // Story View Use
+    class StoryData : ViewModel() {
     // Story View Use
     var storyLines: MutableList<String> = mutableListOf(
         "",
