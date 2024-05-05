@@ -59,6 +59,13 @@ internal fun MainActivity.setupCharacterViewListeners() {
     luc.text = ViewModel.PlayerCharacters[ViewModel.charIndex].luc.toString()
     ptAbility.text = ViewModel.PlayerCharacters[ViewModel.charIndex].remainAbilityPt.toString()
 
+
+    helm.text = ViewModel.PlayerCharacters[ViewModel.charIndex].str.toString()
+    armor.text = ViewModel.PlayerCharacters[ViewModel.charIndex].vit.toString()
+    boots.text = ViewModel.PlayerCharacters[ViewModel.charIndex].agi.toString()
+    ring.text = ViewModel.PlayerCharacters[ViewModel.charIndex].dex.toString()
+    main.text = ViewModel.PlayerCharacters[ViewModel.charIndex].int.toString()
+    sub.text = ViewModel.PlayerCharacters[ViewModel.charIndex].luc.toString()
     //char1Image.setImageResource(R.drawable.adult1)
 
     buttonStrAdd.setOnClickListener {
@@ -136,8 +143,10 @@ internal fun MainActivity.setupCharacterViewListeners() {
     }
     buttonSkill.setOnClickListener {
         setContentView(R.layout.skillview)
+        setupSkillViewListeners()
     }
     buttonItem.setOnClickListener {
-        //setContentView(R.layout.)
+        setContentView(R.layout.inventoryview)
+        setupSkillViewListeners()
     }
 }
