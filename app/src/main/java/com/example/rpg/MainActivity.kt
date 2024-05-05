@@ -206,25 +206,42 @@ class StoryData : ViewModel() {
         "This, is a big town named Britangila.\n",//35 Scene Changed
         "Britangila is located at the border of the Falion Empire, its economy heavily relies on the local farmers and miners, and every year, Lord Eliwood would host a Harvest Festival to thank the Goddess Chauntea for her blessing.\n",
         "Everyone in the town of Britangila is supposed to be happy, drinking and dancing for the whole day.\n",
-        "But this year… Instead of joining the festival, Loyd stood in his living room, walking around impatiently, waiting for a good news.\n",
+        "But this year… Instead of joining the festival, Loyd stood in his living room, walking around impatiently, waiting for good news.\n",
         "While droplets of sweat slid down against his face, a loud cry of a baby burst from the room next door.\n",
-        "You, ___, are borned into this world.\n",//40 name
+        "You, ___, are born into this world.\n",//40 name
         "A nun walks out of the room, and Loyd hurries his steps, going up towards the nun with a worried expression.\n",
         "Loyd:\"Sister, is – is my wife alright? What about my child?\"\n",
-        "Nun:\"Mr.Forgar, please don’t panic, both the mother and child are safe, just like the Oracle said they will be.\"\n",
+        "Nun:\"Mr.Forgar, please don’t panic, both the mother and child are safe, he/she is a healthy just like the Oracle said he/she will be.\"\n",//43 Gender dependent
         "Hearing the nun’s words, Loyd let out a sigh and took a few deep breaths, then he finally allowed the joy to take over him.\n",
         "Loyd:\"Oh thank you! Thank you Goddess Chauntea! And thank you all as well sisters, I can’t ever be able to express the amount of gratitude!\"\n",
         "Loyd bowed down towards the nun.\n",
         "Nun:\"Mr.Forgar, please raise your head. It is our duty to help to give birth to a new life. And also… About the oracle…\"\n",
         "The nun seems a little troubled, but Loyd simply shook his head.\n",
-        "Loyd:\"No worries sister, I accept the fate. If this is what the fate of my child is, He/Her name will be ___ as Oracle stated.\"\n",//49 Gender dependent
+        "Loyd:\"No worries sister, I accept the fate. If this is what the fate of my child is, his/her name will be ___ as Oracle stated.\"\n",//49 Gender dependent
         "The nun looked relieved as she heard the words.\n",
         "Nun:\"Thank you for your understanding, Mr.Loyd. Goddess Chauntea would really appreciate your actions. May the Goddess bless you…\"\n",
-        "As she said her words, she led Loyd into the room where another older nun held the baby.\n",
-        "Unfinished [4]",
-        "Unfinished [4]",
-        "Unfinished [4]",
-        "Unfinished [4]",
+        "As she said her words, she led Loyd into the room where another older nun held the newborn infant -- Which is you.\n",
+        "But instead of coming to hold you, Loyd quickly walked up to the young woman who lies in bed, looking exhausted.\n",
+        "Loyd:\"Yoru, how are you feeling?\"\n",
+        "He holds his wife’s hand, looking worried.\n",//55
+        "Yoru raises her arms and hugs Loyd, patting him on the back, calming the man down.\n",
+        "And that, was your first sight of seeing your parents.\n",
+
+        "Perhaps it is due to your body not yet grown, or brain not yet fully developed, you find yourself to have vague memories for the next few years, while having a much childish way of thinking and naive personality.\n",
+        "Yet, even so, you are still much smarter than those who are at your age.\n", //59
+        "By the age of 8, many neighbors and some residents of this town had known your name. Those who met you had even considered you being a genius from your math skill and modern perspectives of looking at things.\n",
+        "As your memories start to grow much more clear over time, you are becoming more and more like ‘you’.\n",
+        "",//62 Level up, stat shows
+        "You get up from the bed.\n",
+        "Hearing the howling winds, you glance outside the window and see the gray sky.\n",
+        "But the horrible weather did not seem to cloud your good mood, as it is the first day of school, you are looking forward to making some new friends.\n",
+        "After all, humans are the type of race that require some social activities with those who are in their age group, and you are no exception…\n",
+        "",//67 User Input
+        "By the time you reached school, the rain hadn't yet fallen from the sky.\n",
+        "You read the signs, guiding yourself to the assigned classroom.\n",
+        "As you open the door, you are surprised to find that you weren’t the first one here.\n",//70
+        "Near the back of the room, a young girl sits at a desk, reading a book that you have never known about.\n",
+        "She has long beautiful golden hair that is braided with French Braid style; Her blue eyes bright as sapphire even in this dim surrounding; The white dress brings out the purity and cuteness from her.\n",
         "Unfinished [4]",
         "Unfinished [4]",
         "Unfinished [4]",
@@ -290,26 +307,42 @@ class StoryData : ViewModel() {
         "This, is a big town named Britangila.\n",//35 Scene Changed
         "Britangila is located at the border of the Falion Empire, its economy heavily relies on the local farmers and miners, and every year, Lord Eliwood would host a Harvest Festival to thank the Goddess Chauntea for her blessing.\n",
         "Everyone in the town of Britangila is supposed to be happy, drinking and dancing for the whole day.\n",
-        "But this year… Instead of joining the festival, Loyd stood in his living room, walking around impatiently, waiting for a good news.\n",
+        "But this year… Instead of joining the festival, Loyd stood in his living room, walking around impatiently, waiting for good news.\n",
         "While droplets of sweat slid down against his face, a loud cry of a baby burst from the room next door.\n",
-        "You, ___, are borned into this world.\n",//40 name
+        "You, ___, are born into this world.\n",//40 name
         "A nun walks out of the room, and Loyd hurries his steps, going up towards the nun with a worried expression.\n",
         "Loyd:\"Sister, is – is my wife alright? What about my child?\"\n",
-        "Nun:\"Mr.Forgar, please don’t panic, both the mother and child are safe, just like the Oracle said they will be.\"\n",
+        "Nun:\"Mr.Forgar, please don’t panic, both the mother and child are safe, he/she is a healthy just like the Oracle said he/she will be.\"\n",//43 Gender dependent
         "Hearing the nun’s words, Loyd let out a sigh and took a few deep breaths, then he finally allowed the joy to take over him.\n",
         "Loyd:\"Oh thank you! Thank you Goddess Chauntea! And thank you all as well sisters, I can’t ever be able to express the amount of gratitude!\"\n",
         "Loyd bowed down towards the nun.\n",
-        "Nun:\"Mr.Forgar, please raise your head. It is our duty to help to give birth to a new life. And also…. About the oracle…..\"\n",
+        "Nun:\"Mr.Forgar, please raise your head. It is our duty to help to give birth to a new life. And also… About the oracle…\"\n",
         "The nun seems a little troubled, but Loyd simply shook his head.\n",
-        "Loyd:\"No worries sister, I accept the fate. If this is what the fate of my child is, He/Her name will be ___ as Oracle stated.\"\n",//49 Gender dependent
+        "Loyd:\"No worries sister, I accept the fate. If this is what the fate of my child is, his/her name will be ___ as Oracle stated.\"\n",//49 Gender dependent
         "The nun looked relieved as she heard the words.\n",
         "Nun:\"Thank you for your understanding, Mr.Loyd. Goddess Chauntea would really appreciate your actions. May the Goddess bless you…\"\n",
-        "As she said her words, she led Loyd into the room where another older nun held the baby.\n",
-        "Unfinished [4]",
-        "Unfinished [4]",
-        "Unfinished [4]",
-        "Unfinished [4]",
-        "Unfinished [4]",
+        "As she said her words, she led Loyd into the room where another older nun held the newborn infant -- Which is you.\n",
+        "But instead of coming to hold you, Loyd quickly walked up to the young woman who lies in bed, looking exhausted.\n",
+        "Loyd:\"Yoru, how are you feeling?\"\n",
+        "He holds his wife’s hand, looking worried.\n",//55
+        "Yoru raises her arms and hugs Loyd, patting him on the back, calming the man down.\n",
+        "And that, was your first sight of seeing your parents.\n",
+
+        "Perhaps it is due to your body not yet grown, or brain not yet fully developed, you find yourself to have vague memories for the next few years, while having a much childish way of thinking and naive personality.\n",
+        "Yet, even so, you are still much smarter than those who are at your age.\n", //59
+        "By the age of 8, many neighbors and some residents of this town had known your name. Those who met you had even considered you being a genius from your math skill and modern perspectives of looking at things.\n",
+        "As your memories start to grow much more clear over time, you are becoming more and more like ‘you’.\n",
+        "",//62 Level up, stat shows
+        "You get up from the bed.\n",
+        "Hearing the howling winds, you glance outside the window and see the gray sky.\n",
+        "But the horrible weather did not seem to cloud your good mood, as it is the first day of school, you are looking forward to making some new friends.\n",
+        "After all, humans are the type of race that require some social activities with those who are in their age group, and you are no exception…\n",
+        "",//67 User Input
+        "By the time you reached school, the rain hadn't yet fallen from the sky.\n",
+        "You read the signs, guiding yourself to the assigned classroom.\n",
+        "As you open the door, you are surprised to find that you weren’t the first one here.\n",//70
+        "Near the back of the room, a young girl sits at a desk, reading a book that you have never known about.\n",
+        "She has long beautiful golden hair that is braided with French Braid style; Her blue eyes bright as sapphire even in this dim surrounding; The white dress brings out the purity and cuteness from her.\n",
         "Unfinished [4]",
         "Unfinished [4]",
         "Unfinished [4]",
@@ -339,8 +372,8 @@ class StoryData : ViewModel() {
     var storyKeyFlags = mutableListOf(
         false, false,// decline offer of reincarnation
         false,// uncooperative during reincarnation stage
-        false, // Character created
-        true, // Continue Button
+        false, false, // Met Aster and Marth
+        false, //
         false,false,false,false, // 4 Choice Button
         false,false // Char name
     )
@@ -376,8 +409,8 @@ class StoryData : ViewModel() {
     )
 
     var PlayerCharacters = mutableListOf<PlayerCharacter>(
-        PlayerCharacter(true,"Hero", "Male","Peasant","","",1,
-            1,1,1,1,10,10,5),
+        PlayerCharacter(true,"Hero", "Male","Peasant","","",0,
+            1,1,1,1,5,10,0),
         PlayerCharacter(false,"Heroine", "Female","Peasant","","",1,
             10,10,10,10,10,10),
         PlayerCharacter(false,"Saint", "Male","Peasant","","",1,
