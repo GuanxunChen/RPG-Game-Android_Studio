@@ -281,33 +281,72 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyLines[62+ViewModel.storyPushBack] = string
         }
 
-        if(ViewModel.storyIndex == 67+ViewModel.storyPushBack) // Type choice 2
-        {
-            buttonChoice1.text = "You rushed yourself, took your bag and breakfast and ran to school."
-            buttonChoice2.text = "You stay calm as you can, organize yourself nice and neat, then go out to eat breakfast first."
+        if(!ViewModel.storyKeyFlags[3]) {
+            if (ViewModel.storyIndex == 66 + ViewModel.storyPushBack) // Type choice 2
+            {
+                buttonChoice1.text =
+                    "You rushed yourself, took your bag and breakfast and ran to school."
+                buttonChoice2.text =
+                    "You stay calm as you can, organize yourself nice and neat, then go out to eat breakfast first."
 
-            buttonNext.visibility = View.INVISIBLE
-            buttonChoice1.visibility = View.VISIBLE
-            buttonChoice2.visibility = View.VISIBLE
+                buttonNext.visibility = View.INVISIBLE
+                buttonChoice1.visibility = View.VISIBLE
+                buttonChoice2.visibility = View.VISIBLE
 
-            ViewModel.storyButtontag[5] =
-                "You rushed yourself, took your bag and breakfast and ran to school."
-            ViewModel.storyButtontag[6] =
-                "You stay calm as you can, organize yourself nice and neat, then go out to eat breakfast first."
+                ViewModel.storyButtontag[5] =
+                    "You rushed yourself, took your bag and breakfast and ran to school."
+                ViewModel.storyButtontag[6] =
+                    "You stay calm as you can, organize yourself nice and neat, then go out to eat breakfast first."
 
-            ViewModel.storyButtonVisible[4] = false
-            ViewModel.storyButtonVisible[5] = true
-            ViewModel.storyButtonVisible[6] = true
+                ViewModel.storyKeyFlags[3] = true
+                ViewModel.storyButtonVisible[4] = false
+                ViewModel.storyButtonVisible[5] = true
+                ViewModel.storyButtonVisible[6] = true
+            }
         }
 
+        if(!ViewModel.storyKeyFlags[4]) {
+            if (ViewModel.storyIndex == 75 + ViewModel.storyPushBack) // Type choice 1
+            {
+                buttonChoice1.text =
+                    "You introduce yourself first then tell her about how excited you are about coming to school"
+                buttonChoice2.text =
+                    "You claim you thought that would be the case too, but she is already here, and now you too"
+                buttonChoice3.text =
+                    "You replied with the logic of early is on-time, and on-time is late"
+                buttonChoice4.text =
+                    "You are lack of interest, looked at the blackboard and find your sit, then silently sat down"
+
+                buttonNext.visibility = View.INVISIBLE
+                buttonChoice1.visibility = View.VISIBLE
+                buttonChoice2.visibility = View.VISIBLE
+                buttonChoice3.visibility = View.VISIBLE
+                buttonChoice4.visibility = View.VISIBLE
+
+                ViewModel.storyButtontag[5] =
+                    "You introduce yourself first then tell her about how excited you are about coming to school"
+                ViewModel.storyButtontag[6] =
+                    "You claim you thought that would be the case too, but she is already here, and now you too"
+                ViewModel.storyButtontag[7] =
+                    "You replied with the logic of early is on-time, and on-time is late"
+                ViewModel.storyButtontag[8] =
+                    "You are lack of interest, looked at the blackboard and find your sit, then silently sat down"
+
+                ViewModel.storyKeyFlags[4] = true
+
+                ViewModel.storyButtonVisible[4] = false
+                ViewModel.storyButtonVisible[5] = true
+                ViewModel.storyButtonVisible[6] = true
+                ViewModel.storyButtonVisible[7] = true
+                ViewModel.storyButtonVisible[8] = true
+            }
+        }
         // Stage Change section
         if(ViewModel.storyIndex == 35+ViewModel.storyPushBack) // Character Creation - Finish
         {
             buttonCharacter.visibility = View.VISIBLE
             buttonSkill.visibility = View.VISIBLE
             buttonInventory.visibility = View.VISIBLE
-
-            ViewModel.storyKeyFlags[3] = true
 
             ViewModel.storyButtonVisible[0] = true
             ViewModel.storyButtonVisible[1] = true
@@ -391,11 +430,11 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[8] = false
         }
 
-        if(ViewModel.storyIndex == 67+ViewModel.storyPushBack) // Type choice 2
+        if(ViewModel.storyIndex == 66+ViewModel.storyPushBack) // Type choice 2
         {
-            ViewModel.storyLines[68+ViewModel.storyPushBack] = "You rushed yourself, only keeping the basic organization.\n"
-            ViewModel.storyLines.add(69+ViewModel.storyPushBack, "You carry your shoulder bag that holds the textbooks and grab the breakfast that Yoru had prepared you on your way out.\n")
-            ViewModel.storyLines.add(70+ViewModel.storyPushBack, "As you dash out the door, you think you vaguely heard something, but it was not enough to catch your attention.\n")
+            ViewModel.storyLines[67+ViewModel.storyPushBack] = "You rushed yourself, only keeping the basic organization.\n"
+            ViewModel.storyLines.add(68+ViewModel.storyPushBack, "You carry your shoulder bag that holds the textbooks and grab the breakfast that Yoru had prepared you on your way out.\n")
+            ViewModel.storyLines.add(69+ViewModel.storyPushBack, "As you dash out the door, you think you vaguely heard something, but it was not enough to catch your attention.\n")
             ViewModel.storyPushBack+=2
 
 
@@ -406,6 +445,26 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[4] = true
             ViewModel.storyButtonVisible[5] = false
             ViewModel.storyButtonVisible[6] = false
+        }
+
+        if(ViewModel.storyIndex == 75 + ViewModel.storyPushBack)
+        {
+            ViewModel.storyLines[76+ViewModel.storyPushBack] = "You introduce yourself first then tell her about how excited you are about coming to school.\n"
+            ViewModel.storyLines.add(77+ViewModel.storyPushBack, "Girl:\"I see.... I am Aster, nice to meet you. You are excite for school? I thought people like you wouldn't like to be here.\"\n")
+            ViewModel.storyLines.add(78+ViewModel.storyPushBack, "Aster:\"Ah...Ofcourse, no offense. I just happen to heard your name before -- they say you are genius, so you kow, there's stereotypes believing smart people wouldn't like to be surrounded by.... dumbasses....\"\n")
+            ViewModel.storyPushBack+=2
+
+            buttonNext.visibility = View.VISIBLE
+            buttonChoice1.visibility = View.INVISIBLE
+            buttonChoice2.visibility = View.INVISIBLE
+            buttonChoice3.visibility = View.INVISIBLE
+            buttonChoice4.visibility = View.INVISIBLE
+
+            ViewModel.storyButtonVisible[4] = true
+            ViewModel.storyButtonVisible[5] = false
+            ViewModel.storyButtonVisible[6] = false
+            ViewModel.storyButtonVisible[7] = false
+            ViewModel.storyButtonVisible[8] = false
         }
 
         /*
@@ -687,16 +746,15 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[8] = false
         }
 
-        if(ViewModel.storyIndex == 67+ViewModel.storyPushBack) // Type choice 2
+        if(ViewModel.storyIndex == 66+ViewModel.storyPushBack) // Type choice 2
         {
-            ViewModel.storyLines[68+ViewModel.storyPushBack] = "You stay calm as you can, organize yourself nice and neat.\n"
-            ViewModel.storyLines.add(69+ViewModel.storyPushBack, "You walked out the room, eating the breakfast Yoru had prepared you as you sit at the table.\n")
-            ViewModel.storyLines.add(70+ViewModel.storyPushBack, "As you are eating, Yoru came out of kitchen.\n")
-            ViewModel.storyLines.add(71+ViewModel.storyPushBack, "Yoru:\"Oh dear, I am glad you haven't left yet. It look like it will rain today, don't to bring your rainwears.\"\n")
-            ViewModel.storyLines.add(72+ViewModel.storyPushBack, "Yoru handed you a raincoat made of furs\n")
-            ViewModel.storyLines.add(73+ViewModel.storyPushBack, "You took the raincoat and put it in your bag as you leave the house, heading towards school.\n")
-            ViewModel.storyLines.add(74+ViewModel.storyPushBack, "<Rain Coat +1>\n")
-            ViewModel.storyPushBack+=6
+            ViewModel.storyLines[67+ViewModel.storyPushBack] = "You stay calm as you can, organize yourself nice and neat, then walked out the room, eating the breakfast Yoru had prepared for you as you sat at the table.\n"
+            ViewModel.storyLines.add(68+ViewModel.storyPushBack, "As you are eating, Yoru comes out of the kitchen.\n")
+            ViewModel.storyLines.add(69+ViewModel.storyPushBack, "Yoru:\"Oh dear, I am glad you haven't left yet. It look like it will rain today, don't to bring your rainwears.\"\n")
+            ViewModel.storyLines.add(70+ViewModel.storyPushBack, "Yoru handed you a raincoat made of furs\n")
+            ViewModel.storyLines.add(71+ViewModel.storyPushBack, "You took the raincoat and put it in your bag as you left the house, heading towards school.\n")
+            ViewModel.storyLines.add(72+ViewModel.storyPushBack, "<Rain Coat +1>\n")
+            ViewModel.storyPushBack+=5
 
             ViewModel.PlayerCharacters[0].inventoryItems[rain_coat] = 1
 
@@ -707,6 +765,26 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[4] = true
             ViewModel.storyButtonVisible[5] = false
             ViewModel.storyButtonVisible[6] = false
+        }
+
+        if(ViewModel.storyIndex == 75 + ViewModel.storyPushBack)
+        {
+            ViewModel.storyLines[76+ViewModel.storyPushBack] = "You claim you thought that would be the case too, but she is already here, and now you too.\n"
+            ViewModel.storyLines.add(77+ViewModel.storyPushBack, "Girl:\"Haha, you are right. By the way, I am Aster, nice to meet you.\"\n")
+            ViewModel.storyLines.add(78+ViewModel.storyPushBack, "You then introduce yourself to Aster\n")
+            ViewModel.storyPushBack+=2
+
+            buttonNext.visibility = View.VISIBLE
+            buttonChoice1.visibility = View.INVISIBLE
+            buttonChoice2.visibility = View.INVISIBLE
+            buttonChoice3.visibility = View.INVISIBLE
+            buttonChoice4.visibility = View.INVISIBLE
+
+            ViewModel.storyButtonVisible[4] = true
+            ViewModel.storyButtonVisible[5] = false
+            ViewModel.storyButtonVisible[6] = false
+            ViewModel.storyButtonVisible[7] = false
+            ViewModel.storyButtonVisible[8] = false
         }
 
         /*
@@ -949,6 +1027,28 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[8] = false
         }
 
+        if(ViewModel.storyIndex == 75 + ViewModel.storyPushBack)
+        {
+            ViewModel.storyLines[76+ViewModel.storyPushBack] = "You replied with the logic of early is on-time, and on-time is late.\n"
+            ViewModel.storyLines.add(77+ViewModel.storyPushBack, "Girl:\"Hmmm..... Interesting....Then there might be only the two of us on time today~ I am Aster, nice to meet you.\"\n")
+            ViewModel.storyLines.add(78+ViewModel.storyPushBack, "Aster:\"I am sorry if I guessed wrong, but could you be "+ViewModel.PlayerCharacters[0].name+"?\"\n")
+            ViewModel.storyLines.add(79+ViewModel.storyPushBack, "You are surprised once more by her -- How did she knew?\n")
+            ViewModel.storyLines.add(80+ViewModel.storyPushBack, "Aster looked at your expression and explained herself.\n")
+            ViewModel.storyLines.add(81+ViewModel.storyPushBack, "Aster:\"The board wrote your name and where you sit, and I knew about you from the others....So I took a bet that there wouldn't be another student who is as interesting as you in this small group of people.\"\n")
+            ViewModel.storyPushBack+=5
+
+            buttonNext.visibility = View.VISIBLE
+            buttonChoice1.visibility = View.INVISIBLE
+            buttonChoice2.visibility = View.INVISIBLE
+            buttonChoice3.visibility = View.INVISIBLE
+            buttonChoice4.visibility = View.INVISIBLE
+
+            ViewModel.storyButtonVisible[4] = true
+            ViewModel.storyButtonVisible[5] = false
+            ViewModel.storyButtonVisible[6] = false
+            ViewModel.storyButtonVisible[7] = false
+            ViewModel.storyButtonVisible[8] = false
+        }
         /*
         if(ViewModel.storyIndex == 7) // Character Creation - Choose Weapon
         {
@@ -1182,6 +1282,25 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyButtonVisible[8] = false
         }
 
+        if(ViewModel.storyIndex == 75 + ViewModel.storyPushBack)
+        {
+            ViewModel.storyLines[76+ViewModel.storyPushBack] = "You are lack of interest, looked at the blackboard and find your sit, then silently sat down.\n"
+            ViewModel.storyLines.add(77+ViewModel.storyPushBack, "As you sat on your sit, the girl frowned and opens her mouth, preparing to speak.\n")
+            ViewModel.storyLines.add(78+ViewModel.storyPushBack, "But she soon stopped her action and turns away, concentrating on her book.\n")
+            ViewModel.storyPushBack+=2
+
+            buttonNext.visibility = View.VISIBLE
+            buttonChoice1.visibility = View.INVISIBLE
+            buttonChoice2.visibility = View.INVISIBLE
+            buttonChoice3.visibility = View.INVISIBLE
+            buttonChoice4.visibility = View.INVISIBLE
+
+            ViewModel.storyButtonVisible[4] = true
+            ViewModel.storyButtonVisible[5] = false
+            ViewModel.storyButtonVisible[6] = false
+            ViewModel.storyButtonVisible[7] = false
+            ViewModel.storyButtonVisible[8] = false
+        }
 
         // Continue the story
         ViewModel.storyIndex++

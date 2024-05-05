@@ -96,34 +96,52 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/ContinueButton"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:text="next" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/Choice1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Choice1" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/skybackground" />
 
-    <Button
-        android:id="@+id/Choice2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Choice2" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/Choice3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Choice3" />
+            <Button
+                android:id="@+id/ContinueButton"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:text="next" />
 
-    <Button
-        android:id="@+id/Choice4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Choice4" />
+            <Button
+                android:id="@+id/Choice1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choice1" />
+
+            <Button
+                android:id="@+id/Choice2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choice2" />
+
+            <Button
+                android:id="@+id/Choice3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choice3" />
+
+            <Button
+                android:id="@+id/Choice4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choice4" />
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

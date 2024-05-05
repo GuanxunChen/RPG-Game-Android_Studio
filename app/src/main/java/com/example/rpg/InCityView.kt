@@ -13,8 +13,8 @@ internal fun MainActivity.setupInCityViewListeners() {
     val buttonMarthHouse = findViewById<Button>(R.id.ButtonMarthHouse)
     val buttonTownSquare = findViewById<Button>(R.id.ButtonTownSquare)
 
-    if(!ViewModel.storyKeyFlags[3]){buttonAsterHouse.visibility = View.INVISIBLE} else {buttonAsterHouse.visibility = View.VISIBLE}
-    if(!ViewModel.storyKeyFlags[4]){buttonMarthHouse.visibility = View.INVISIBLE} else {buttonMarthHouse.visibility = View.VISIBLE}
+    if(!ViewModel.storyKeyFlags[5]){buttonAsterHouse.visibility = View.INVISIBLE} else {buttonAsterHouse.visibility = View.VISIBLE}
+    if(!ViewModel.storyKeyFlags[8]){buttonMarthHouse.visibility = View.INVISIBLE} else {buttonMarthHouse.visibility = View.VISIBLE}
 
     buttonFarm.setOnClickListener {
 

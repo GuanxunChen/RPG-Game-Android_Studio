@@ -62,7 +62,7 @@ data class PlayerCharacter(
     var currentBoots: Item? = null,
   
     val inventoryItems: MutableMap<Item, Int> = mutableMapOf(),
-    val skills: MutableMap<String, Skill> = mutableMapOf(/*
+    val skills: MutableMap<String, Skill> = mutableMapOf(
         "Fireball" to fireball,
         "Heal" to heal,
         "Sleep" to sleep,
@@ -71,7 +71,7 @@ data class PlayerCharacter(
         "Slash" to slash,
         "Pyromaniac" to Pyromaniac,
         "Elemental Affinity" to ElementalAffinity,
-        "Gale Force" to GaleForce,*/
+        "Gale Force" to GaleForce,
     ),
     var skillUpgradePoints: Int = 1
 )
@@ -242,9 +242,11 @@ class StoryData : ViewModel() {
         "As you open the door, you are surprised to find that you weren’t the first one here.\n",//70
         "Near the back of the room, a young girl sits at a desk, reading a book that you have never known about.\n",
         "She has long beautiful golden hair that is braided with French Braid style; Her blue eyes bright as sapphire even in this dim surrounding; The white dress brings out the purity and cuteness from her.\n",
-        "Unfinished [4]",
-        "Unfinished [4]",
-        "Unfinished [4]",
+        "While you look at her, she soon raises her head and looks back at you – it seems like your sight caught her attention.\n",
+        "The girl looked you over from top to down, tip to toe, then smiled.\n",
+        "Girl:“....You are early, very early. It is about half an hour before the starting time of class. Nobody is here yet.”\n",
+        "",//76 User Input
+
         "Unfinished [4]",
         "Unfinished [4]",
         "Unfinished [4]",
@@ -343,9 +345,11 @@ class StoryData : ViewModel() {
         "As you open the door, you are surprised to find that you weren’t the first one here.\n",//70
         "Near the back of the room, a young girl sits at a desk, reading a book that you have never known about.\n",
         "She has long beautiful golden hair that is braided with French Braid style; Her blue eyes bright as sapphire even in this dim surrounding; The white dress brings out the purity and cuteness from her.\n",
-        "Unfinished [4]",
-        "Unfinished [4]",
-        "Unfinished [4]",
+        "While you look at her, she soon raises her head and looks back at you – it seems like your sight caught her attention.\n",
+        "The girl looked you over from top to down, tip to toe, then smiled.\n",
+        "Girl:“....You are early, very early. It is about half an hour before the starting time of class. Nobody is here yet.”\n",
+        "",//76 User Input
+
         "Unfinished [4]",
         "Unfinished [4]",
         "Unfinished [4]",
@@ -372,7 +376,10 @@ class StoryData : ViewModel() {
     var storyKeyFlags = mutableListOf(
         false, false,// decline offer of reincarnation
         false,// uncooperative during reincarnation stage
-        false, false, // Met Aster and Marth
+        false, // prevent raincoat error
+        false, false, // Met Aster and become friends and invited
+        false,
+        false, false, // Met Marth and become friends and invited
         false, //
         false,false,false,false, // 4 Choice Button
         false,false // Char name
