@@ -688,7 +688,7 @@ internal fun MainActivity.setupStoryViewListeners()
                 ViewModel.storyLines.add(24+ViewModel.storyPushBack,"Before you get to change your mind and say anything, you see a bright light that blinds you from soul to mind…..\n")
                 ViewModel.storyLines.add(25+ViewModel.storyPushBack,"Then you realize, you woke up from the bed.\n")
                 ViewModel.storyLines.add(26+ViewModel.storyPushBack,"Without remembering anything about the rough 20 minutes of sleep, you walked out with a tiring body that would collapse any second.\n")
-                ViewModel.storyLines.add(27+ViewModel.storyPushBack,"You went to your normal day, and at one point, you sat on the chair and lay on the table.....\n")
+                ViewModel.storyLines.add(27+ViewModel.storyPushBack,"You went to your normal day, and at one point, you sat on the chair and laid on the table.....\n")
                 ViewModel.storyPushBack+=5
 
                 buttonNext.visibility = View.VISIBLE
