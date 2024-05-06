@@ -230,7 +230,7 @@ class StoryData : ViewModel() {
 
         "Perhaps it is due to your body not yet grown, or brain not yet fully developed, you find yourself to have vague memories for the next few years, while having a much childish way of thinking and naive personality.\n",
         "Yet, even so, you are still much smarter than those who are at your age.\n", //59
-        "By the age of 8, many neighbors and some residents of this town had known your name. Those who met you had even considered you being a genius from your math skill and modern perspectives of looking at things.\n",
+        "By the age of 8, many neighbors and some residents of this town had known your name. Those who met you had even considered you being a genius from your math skills and modern perspectives of looking at things.\n",
         "As your memories start to grow much more clear over time, you are becoming more and more like ‘you’.\n",
         "",//62 Level up, stat shows
         "You get up from the bed.\n",
@@ -333,7 +333,7 @@ class StoryData : ViewModel() {
 
         "Perhaps it is due to your body not yet grown, or brain not yet fully developed, you find yourself to have vague memories for the next few years, while having a much childish way of thinking and naive personality.\n",
         "Yet, even so, you are still much smarter than those who are at your age.\n", //59
-        "By the age of 8, many neighbors and some residents of this town had known your name. Those who met you had even considered you being a genius from your math skill and modern perspectives of looking at things.\n",
+        "By the age of 8, many neighbors and some residents of this town had known your name. Those who met you had even considered you being a genius from your math skills and modern perspectives of looking at things.\n",
         "As your memories start to grow much more clear over time, you are becoming more and more like ‘you’.\n",
         "",//62 Level up, stat shows
         "You get up from the bed.\n",
