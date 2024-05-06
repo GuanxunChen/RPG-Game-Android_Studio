@@ -450,8 +450,8 @@ internal fun MainActivity.setupStoryViewListeners()
         if(ViewModel.storyIndex == 75 + ViewModel.storyPushBack)
         {
             ViewModel.storyLines[76+ViewModel.storyPushBack] = "You introduce yourself first then tell her about how excited you are about coming to school.\n"
-            ViewModel.storyLines.add(77+ViewModel.storyPushBack, "Girl:\"I see.... I am Aster, nice to meet you. You are excite for school? I thought people like you wouldn't like to be here.\"\n")
-            ViewModel.storyLines.add(78+ViewModel.storyPushBack, "Aster:\"Ah...Ofcourse, no offense. I just happen to heard your name before -- they say you are genius, so you kow, there's stereotypes believing smart people wouldn't like to be surrounded by.... dumbasses....\"\n")
+            ViewModel.storyLines.add(77+ViewModel.storyPushBack, "Girl:\"I see.... I am Aster, nice to meet you. You are excited for school? I thought people like you wouldn't like to be here.\"\n")
+            ViewModel.storyLines.add(78+ViewModel.storyPushBack, "Aster:\"Ah...Of course, no offense. I just happen to heard your name before -- they say you are genius, so you kow, there's stereotypes believing smart people wouldn't like to be surrounded by.... dumbasses....\"\n")
             ViewModel.storyPushBack+=2
 
             buttonNext.visibility = View.VISIBLE
@@ -751,7 +751,7 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyLines[67+ViewModel.storyPushBack] = "You stay calm as you can, organize yourself nice and neat, then walked out the room, eating the breakfast Yoru had prepared for you as you sat at the table.\n"
             ViewModel.storyLines.add(68+ViewModel.storyPushBack, "As you are eating, Yoru comes out of the kitchen.\n")
             ViewModel.storyLines.add(69+ViewModel.storyPushBack, "Yoru:\"Oh dear, I am glad you haven't left yet. It look like it will rain today, don't to bring your rainwears.\"\n")
-            ViewModel.storyLines.add(70+ViewModel.storyPushBack, "Yoru handed you a raincoat made of furs\n")
+            ViewModel.storyLines.add(70+ViewModel.storyPushBack, "Yoru handed you a raincoat made of fur.\n")
             ViewModel.storyLines.add(71+ViewModel.storyPushBack, "You took the raincoat and put it in your bag as you left the house, heading towards school.\n")
             ViewModel.storyLines.add(72+ViewModel.storyPushBack, "<Rain Coat +1>\n")
             ViewModel.storyPushBack+=5
@@ -1034,7 +1034,7 @@ internal fun MainActivity.setupStoryViewListeners()
             ViewModel.storyLines.add(78+ViewModel.storyPushBack, "Aster:\"I am sorry if I guessed wrong, but could you be "+ViewModel.PlayerCharacters[0].name+"?\"\n")
             ViewModel.storyLines.add(79+ViewModel.storyPushBack, "You are surprised once more by her -- How did she knew?\n")
             ViewModel.storyLines.add(80+ViewModel.storyPushBack, "Aster looked at your expression and explained herself.\n")
-            ViewModel.storyLines.add(81+ViewModel.storyPushBack, "Aster:\"The board wrote your name and where you sit, and I knew about you from the others....So I took a bet that there wouldn't be another student who is as interesting as you in this small group of people.\"\n")
+            ViewModel.storyLines.add(81+ViewModel.storyPushBack, "Aster:\"The black board wrote your name and where you sit, and I knew about you from the others....So I took a bet that there wouldn't be another student who is as interesting as you in this small group of people.\"\n")
             ViewModel.storyPushBack+=5
 
             buttonNext.visibility = View.VISIBLE
