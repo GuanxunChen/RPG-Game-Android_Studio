@@ -26,6 +26,21 @@ val dagger = Item(
 
 
 //Basic armor
+val linen_clothes = Item(
+    name = "Linen Clothe",
+    type = "Armor",
+    description = "Basic wearing.",
+    defense = 2,
+    isArmor = true
+)
+val rain_coat = Item(
+    name = "Rain Coat",
+    type = "Armor",
+    description = "RainCoat that protect you from rains.",
+    defense = 3,
+    hpBoost = 5,
+    isArmor = true
+)
 val leather_armor = Item(
     name = "Leather Armor",
     type = "Armor",
@@ -187,4 +202,12 @@ val amulet_healing = Item(
     description = "Magical amulet that restores health over time when equipped.",
     heals = 10,
     isSelfUsable = true
+)
+
+// Key Items
+val BlankBook = Item(
+    name = "Blank Book",
+    type = "Key",
+    description = "A Blank Book? Why is a book blank?",
+    isKey = true
 )

@@ -231,3 +231,68 @@ val GaleForce = Skill(
     element = Element.WIND,
     targetType = TargetType.SELF
 )
+
+val greaterHeal = Skill(
+    name = "Greater Heal",
+    description = "Heals a large amount of HP.",
+    isPassive = false,
+    mpCost = 10,
+    damage = 0,
+    heal = 50,
+    targetType = TargetType.SINGLE,
+    element = Element.NONE,
+    statusEffect = null,
+    cooldown = 0
+)
+
+val manaSword = Skill(
+    name = "Mana Sword",
+    description = "Empowers the user's weapon with mana, increasing attack power.",
+    isPassive = false,
+    mpCost = 15,
+    damage = 20,
+    heal = 0,
+    targetType = TargetType.SELF,
+    element = Element.NONE,
+    statusEffect = null,
+    cooldown = 0
+)
+
+val eagleStrike = Skill(
+    name = "Eagle Strike",
+    description = "Unleashes a powerful strike, dealing damage to a single target.",
+    isPassive = false,
+    mpCost = 20,
+    damage = 80,
+    heal = 0,
+    targetType = TargetType.SINGLE,
+    element = Element.NONE,
+    statusEffect = null,
+    cooldown = 0
+)
+
+val sharpShooting = Skill(
+    name = "Sharp Shooting",
+    description = "Enhances accuracy and damage for ranged attacks.",
+    isPassive = true,
+    mpCost = 0,
+    damage = 10,
+    heal = 0,
+    targetType = TargetType.SELF,
+    element = Element.NONE,
+    statusEffect = null,
+    cooldown = 0
+)
+
+val doubleSlash = Skill(
+    name = "Double Slash",
+    description = "Quickly strikes twice with a weapon, dealing damage to a single target.",
+    isPassive = false,
+    mpCost = 25,
+    damage = 40,
+    heal = 0,
+    targetType = TargetType.SINGLE,
+    element = Element.NONE,
+    statusEffect = null,
+    cooldown = 0
+)
