@@ -750,7 +750,7 @@ internal fun MainActivity.setupStoryViewListeners()
         {
             ViewModel.storyLines[67+ViewModel.storyPushBack] = "You stay calm as you can, organize yourself nice and neat, then walked out the room, eating the breakfast Yoru had prepared for you as you sat at the table.\n"
             ViewModel.storyLines.add(68+ViewModel.storyPushBack, "As you are eating, Yoru comes out of the kitchen.\n")
-            ViewModel.storyLines.add(69+ViewModel.storyPushBack, "Yoru:\"Oh dear, I am glad you haven't left yet. It look like it will rain today, don't to bring your rainwears.\"\n")
+            ViewModel.storyLines.add(69+ViewModel.storyPushBack, "Yoru:\"Oh dear, I am glad you haven't left yet. It look like it will rain today, don't forget to bring your rainwears.\"\n")
             ViewModel.storyLines.add(70+ViewModel.storyPushBack, "Yoru handed you a raincoat made of fur.\n")
             ViewModel.storyLines.add(71+ViewModel.storyPushBack, "You took the raincoat and put it in your bag as you left the house, heading towards school.\n")
             ViewModel.storyLines.add(72+ViewModel.storyPushBack, "<Rain Coat +1>\n")
